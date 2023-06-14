@@ -45,12 +45,18 @@ Route::get('/about', function () {
  
     return view('realest.about',['catogerys' => $catogerys]);
 })->name('about');
+
 Route::get('/conactUs', function () {
     $catogerys = Catogery::all();
  
     return view('realest.conactUs',['catogerys' => $catogerys]);
 })->name('conactUs');
 
+Route::get('/goTest', function () {
+
+ 
+    return view('front_end.test');
+})->name('goTest');
 
 Route::controller(BlogController::class)->group(function () {
 Route::get('/blogview',  'index')->name('blogview');
