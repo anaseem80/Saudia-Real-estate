@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->bigIncrements('id');//real_estate_number يكون تلقائي 
+            $table->string('name');//عنوان الاعلان
+            $table->string('real_estate_advertisement_number');// رقم الاعلان يدخله يدوي
             $table->string('picture');
             $table->string('country');
             $table->integer('status')->default(0);

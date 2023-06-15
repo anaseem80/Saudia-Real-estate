@@ -15,20 +15,29 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('country')->nullable();
-            $table->string('user_type')->default('user');
-            $table->string('phone')->nullable();
+            $table->string('name', 100);
+            $table->string('country', 100);
+            $table->string('city', 100);
+            $table->enum('user_type', ['user', 'admin', 'other'])->default('user');
+            $table->unsignedBigInteger('first_phone')->index();
+            $table->unsignedBigInteger('second_phone')->nullable()->index();
             $table->integer('number_ads')->default(15);
-            $table->string('email')->unique();
-            $table->string('status')->nullable();
+            $table->string('email', 255)->unique();
+            $table->enum('status', ['active', 'inactive', 'banned'])->nullable()->index();
+            $table->enum('advertiser_type', ['office', 'broker', 'owner'])->nullable();
+            $table->string('commercial_registration_no', 50)->nullable();
+            $table->string('license_number', 50)->nullable();
+            $table->string('password', 255);
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
-            $table->string('password');
-            $table->string('adress')->nullable();
             $table->rememberToken();
             $table->timestamps();
+             // Indexes
+            $table->index('email');
+            $table->index('user_type');
+     
         });
+        
     }
 
     /**

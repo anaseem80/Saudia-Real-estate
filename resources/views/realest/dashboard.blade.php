@@ -157,7 +157,7 @@
 					<div class="col-xl-4 col-md-12 col-lg-12">
 						<div class="card">
 							<div class="card-header pb-1">
-								<h3 class="card-title mb-2">اخر العملاء طلبا للعقارات</h3>
+								<h3 class="card-title mb-2">اخر العملاء استعلاما للعقارات</h3>
 								<p class="tx-12 mb-0 text-muted">العميل هو فرد أو شركة تشتري خدمة العقارات وقد تطورت لتشمل الوقت الفعلي</p>
 							</div>
 							<div class="card-body p-0 customers mt-1">
@@ -211,7 +211,7 @@
 										<p class="mb-0 text-muted tx-12">{{$totalProperties}}  مجموع العقارات </p>
 									</li>
 									<li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات الغير مقبوله</span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totaldontProperties}} العقارات الغير مقبوله</p>
+										<p class="mb-0 text-muted tx-12">{{$totaldontProperties}} العقارات الغير نشطه</p>
 									</li>
 									<li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الاستعلامات</span> <a href="#" class="float-left tx-11 text-muted"></a>
 										<p class="mb-0 text-muted tx-12">{{$totalQueries}}  جميع الاستعلامات</p>
@@ -222,9 +222,9 @@
 									<li class="mt-0"> <i class="si si-eye bg-purple-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد المستخدمين</span> <a href="#" class="float-left tx-11 text-muted"></a>
 										<p class="mb-0 text-muted tx-12">{{$totalUsers}} عدد المستخدمين</p>
 									</li>
-									<li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الدول </span> <a href="#" class="float-left tx-11 text-muted"></a>
+									{{-- <li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الدول </span> <a href="#" class="float-left tx-11 text-muted"></a>
 										<p class="mb-0 text-muted tx-12">{{$totalCountries}} عدد الدول</p>
-									</li>
+									</li> --}}
 								</ul>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-dashboard-eight pb-2">
-							<h6 class="card-title">اعلي الدول</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي الدول المتواجد به مستخدمين للتطبيق والموقع </span>
+							<h6 class="card-title">احصائيه لاكثر مستخدمين الموقع</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي الدول المتواجد به مستخدمين للتطبيق والموقع </span>
 							<div class="list-group">
 							
 
@@ -265,7 +265,7 @@
 				<div class="row row-sm row-deck">
 					<div class="col-md-12 col-lg-4 col-xl-4">
 						<div class="card card-dashboard-eight pb-2">
-							<h6 class="card-title">اعلي المناطق</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي المناطق  تواجدا للعقارات</span>
+							<h6 class="card-title">اعلي المناطق تواجدا للعقارات داخل المملكه العربيه السعوديه</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي المناطق  تواجدا للعقارات</span>
 							<div class="list-group">
 							
 
