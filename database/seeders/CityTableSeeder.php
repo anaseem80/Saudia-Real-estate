@@ -14,53 +14,51 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
         City::create([
-           'name' => 'ابوظبي',
-           
-           'country_id' => 1,
-           'created_at' => now(),
-           'updated_at' => now()
-       ]);
-       City::create([
-           'name' => 'دبي',
-           'country_id' => 1,
-       
-           'created_at' => now(),
-           'updated_at' => now()
-       ]);             
-       City::create([
-           'name' => 'الشارقه',
+            'name' => 'الرياض',
 
-
-           'country_id' => 1,
-           'created_at' => now(),
-       
-           
-           'updated_at' => now()
-       ]);            
+            'country_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
         City::create([
-           'name' => 'العين',
-           
-           'country_id' => 1,
-           'created_at' => now(),
-           'updated_at' => now()
-       ]);  
-       City::create([
-        'name' => 'عجمان',
-        
-        'country_id' => 1,
-        'created_at' => now(),
-        'updated_at' => now()
-    ]);           
-       City::create([
-           'name' => 'الرويس',
-           'country_id' => 1,
-       
-           'created_at' => now(),
-           'updated_at' => now()
-       ]);
+            'name' => 'جده',
+            'country_id' => 1,
 
-  
-}
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        City::create([
+            'name' => 'الدمام',
+
+
+            'country_id' => 1,
+            'created_at' => now(),
+
+
+            'updated_at' => now()
+        ]);
+        City::create([
+            'name' => 'مكة',
+
+            'country_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        City::create([
+            'name' => 'الطائف',
+
+            'country_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        City::create([
+            'name' => 'الشرقية',
+            'country_id' => 1,
+
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+    }
 }

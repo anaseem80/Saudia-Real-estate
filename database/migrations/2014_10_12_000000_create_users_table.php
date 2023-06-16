@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('second_phone')->nullable()->index();
             $table->integer('number_ads')->default(15);
             $table->string('email', 255)->unique();
-            $table->enum('status', ['active', 'inactive', 'banned'])->nullable()->index();
+            $table->enum('status', ['active', 'inactive', 'banned'])->default('active')->index();
             $table->enum('advertiser_type', ['office', 'broker', 'owner'])->nullable();
             $table->string('commercial_registration_no', 50)->nullable();
             $table->string('license_number', 50)->nullable();

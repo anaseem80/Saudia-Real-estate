@@ -18,8 +18,8 @@ class CountryTableSeeder extends Seeder
         
              Country::create([
                 'name' => 'السعوديه',
-                
-            
+                'code'=>'966',
+                'logo'=>'logoam.png',
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
