@@ -17,9 +17,10 @@ return new class extends Migration
             $table->bigIncrements('id');//real_estate_number يكون تلقائي 
             $table->string('name');//عنوان الاعلان
             $table->string('real_estate_advertisement_number');// رقم الاعلان يدخله يدوي
-            $table->string('picture');
-            $table->string('country');
-            $table->integer('status')->default(0);
+            // $table->string('picture');
+            $table->string('country'); 
+            $table->string('city');
+            $table->integer('status')->default(1);
             $table->integer('views')->default(0);
             $table->integer('recommended')->default(0);
             $table->unsignedBigInteger('catogerie_id');

@@ -45,9 +45,9 @@ class CatogeryController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ],[
 
-            'name.required' =>'يرجي ادخال اسم القسم',
+            'name.required' =>'يرجي ادخال نوع العقار',
             'image.required' =>'يرجي ادخال الصوره',
-            'name.unique' =>'اسم القسم مسجل مسبقا',
+            'name.unique' =>'نوع العقار مسجل مسبقا',
 
 
         ]);
@@ -56,7 +56,7 @@ class CatogeryController extends Controller
 
         if($b_exist){
 
-            session()->flash('Erorr', 'اسم القسم موجود بالفعل');
+            session()->flash('Erorr', 'نوع العقار موجود بالفعل');
             return back();
 
         }else{
@@ -119,9 +119,9 @@ class CatogeryController extends Controller
             'image_path' => 'required',
         ],[
 
-            'name.required' =>'يرجي ادخال اسم القسم',
+            'name.required' =>'يرجي ادخال نوع العقار',
             'image_path.required' =>'يرجي ادخال الصوره',
-            'name.unique' =>'اسم القسم مسجل مسبقا',
+            'name.unique' =>'نوع العقار مسجل مسبقا',
 
 
         ]);

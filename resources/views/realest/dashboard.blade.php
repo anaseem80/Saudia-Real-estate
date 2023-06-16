@@ -210,7 +210,7 @@
 									<li class="mt-0"> <i class="ti-pie-chart bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات </span> <a href="#" class="float-left tx-11 text-muted"></a>
 										<p class="mb-0 text-muted tx-12">{{$totalProperties}}  مجموع العقارات </p>
 									</li>
-									<li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات الغير مقبوله</span> <a href="#" class="float-left tx-11 text-muted"></a>
+									<li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات الغير نشطه</span> <a href="#" class="float-left tx-11 text-muted"></a>
 										<p class="mb-0 text-muted tx-12">{{$totaldontProperties}} العقارات الغير نشطه</p>
 									</li>
 									<li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الاستعلامات</span> <a href="#" class="float-left tx-11 text-muted"></a>
@@ -301,7 +301,7 @@
 									<thead>
 										<tr>
 											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">اسم العقار</th>
+											<th class="wd-lg-15p tx-right">عنوان العقار</th>  
 											<th class="wd-lg-10p tx-right">بلد العقار</th>
 											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
 											<th class="wd-lg-10p tx-right">عدد الطلبات للعقار</th>
@@ -344,7 +344,7 @@
 									<thead>
 										<tr>
 											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">اسم العقار</th>
+											<th class="wd-lg-15p tx-right">عنوان العقار</th>
 											<th class="wd-lg-10p tx-right">بلد العقار</th>
 											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
 											<th class="wd-lg-10p tx-right">عدد الابلاغات للعقار</th>
@@ -390,7 +390,7 @@
 									<thead>
 										<tr>
 											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">اسم العقار</th>
+											<th class="wd-lg-15p tx-right">عنوان العقار</th>
 											<th class="wd-lg-10p tx-right">بلد العقار</th>
 											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
 										

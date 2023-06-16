@@ -592,7 +592,7 @@ button, input, optgroup, select, textarea{
                   </div>
                   <div class="py-[20px] px-[20px]">
                     <h3><a href="{{ route('detelisscreen', $item->id) }}" class="font-recoleta leading-tight text-[22px] xl:text-lg text-white">{{$item->name}}</a></h3>
-                    <h4><a href="{{ route('detelisscreen', $item->id) }}" style="color: white !important;">جمهورية الامارات العربية المتحدة</a></h4>
+                    <h4><a href="{{ route('detelisscreen', $item->id) }}" style="color: white !important;">جمهورية السعوديه العربية المتحدة</a></h4>
                     <span class="font-light text-white text-sm">{{$item->created_at->format('Y-m-d H:i:s')}}</span>
                     <div class=" relative">
                       <span class="font-recoleta text-primary px-[15px]">{{$item->country}}</span>
@@ -648,7 +648,7 @@ button, input, optgroup, select, textarea{
                               <div class="py-[20px] px-[20px]">
                                 <h3><a href="{{ route('detelisscreen', $item->id) }}" class="font-recoleta leading-tight text-[22px] xl:text-lg text-primary">{{$item->name}}</a></h3>
                                 
-                                <h4><a href="{{ route('detelisscreen', $item->id) }}" style="color: white !important;">جمهورية الامارات العربية المتحدة</a></h4>
+                                <h4><a href="{{ route('detelisscreen', $item->id) }}" style="color: white !important;">جمهورية السعوديه العربية المتحدة</a></h4>
 
 
                                 <span class="font-light text-sm text-white">{{$item->created_at->format('Y-m-d H:i:s')}}</span>

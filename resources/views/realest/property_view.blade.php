@@ -90,7 +90,7 @@
                             <thead>
                                 <tr>
                                     <th class="border-bottom-0">#</th>
-                                    <th class="border-bottom-0">اسم العقار</th>
+                                    <th class="border-bottom-0">عنوان العقار</th>
                                     <th class="border-bottom-0">نوع العقار</th>
                                     <th class="border-bottom-0">المدينه</th>
                                     {{-- <th class="border-bottom-0">رقم الهاتف</th> --}}

@@ -79,17 +79,7 @@ final class CurlResponse implements ResponseInterface, StreamableInterface
         }
 
         curl_setopt($ch, \CURLOPT_HEADERFUNCTION, static function ($ch, string $data) use (&$info, &$headers, $options, $multi, $id, &$location, $resolveRedirect, $logger): int {
-            if (0 !== substr_compare($data, "\r\n", -2)) {
-                return 0;
-            }
-
-            $len = 0;
-
-            foreach (explode("\r\n", substr($data, 0, -2)) as $data) {
-                $len += 2 + self::parseHeaderLine($ch, $data, $info, $headers, $options, $multi, $id, $location, $resolveRedirect, $logger);
-            }
-
-            return $len;
+            return self::parseHeaderLine($ch, $data, $info, $headers, $options, $multi, $id, $location, $resolveRedirect, $logger);
         });
 
         if (null === $options) {
@@ -167,7 +157,7 @@ final class CurlResponse implements ResponseInterface, StreamableInterface
         });
 
         $this->initializer = static function (self $response) {
-            $waitFor = curl_getinfo($ch = $response->handle, \CURLINFO_PRIVATE);
+            $waitFor = curl_getinfo($response->handle, \CURLINFO_PRIVATE);
 
             return 'H' === $waitFor[0];
         };
@@ -266,7 +256,7 @@ final class CurlResponse implements ResponseInterface, StreamableInterface
             $runningResponses[$i] = [$response->multi, [$response->id => $response]];
         }
 
-        if ('_0' === curl_getinfo($ch = $response->handle, \CURLINFO_PRIVATE)) {
+        if ('_0' === curl_getinfo($response->handle, \CURLINFO_PRIVATE)) {
             // Response already completed
             $response->multi->handlesActivity[$response->id][] = null;
             $response->multi->handlesActivity[$response->id][] = null !== $response->info['error'] ? new TransportException($response->info['error']) : null;
@@ -366,19 +356,29 @@ final class CurlResponse implements ResponseInterface, StreamableInterface
      */
     private static function parseHeaderLine($ch, string $data, array &$info, array &$headers, ?array $options, CurlClientState $multi, int $id, ?string &$location, ?callable $resolveRedirect, ?LoggerInterface $logger): int
     {
+        if (!str_ends_with($data, "\r\n")) {
+            return 0;
+        }
+
         $waitFor = @curl_getinfo($ch, \CURLINFO_PRIVATE) ?: '_0';
 
         if ('H' !== $waitFor[0]) {
             return \strlen($data); // Ignore HTTP trailers
         }
 
-        if ('' !== $data) {
+        $statusCode = curl_getinfo($ch, \CURLINFO_RESPONSE_CODE);
+
+        if ($statusCode !== $info['http_code'] && !preg_match("#^HTTP/\d+(?:\.\d+)? {$statusCode}(?: |\r\n$)#", $data)) {
+            return \strlen($data); // Ignore headers from responses to CONNECT requests
+        }
+
+        if ("\r\n" !== $data) {
             // Regular header line: add it to the list
-            self::addResponseHeaders([$data], $info, $headers);
+            self::addResponseHeaders([substr($data, 0, -2)], $info, $headers);
 
             if (!str_starts_with($data, 'HTTP/')) {
                 if (0 === stripos($data, 'Location:')) {
-                    $location = trim(substr($data, 9));
+                    $location = trim(substr($data, 9, -2));
                 }
 
                 return \strlen($data);
@@ -401,7 +401,7 @@ final class CurlResponse implements ResponseInterface, StreamableInterface
 
         // End of headers: handle informational responses, redirects, etc.
 
-        if (200 > $statusCode = curl_getinfo($ch, \CURLINFO_RESPONSE_CODE)) {
+        if (200 > $statusCode) {
             $multi->handlesActivity[$id][] = new InformationalChunk($statusCode, $headers);
             $location = null;
 

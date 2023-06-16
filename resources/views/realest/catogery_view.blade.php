@@ -136,7 +136,7 @@
 										{{ csrf_field() }}
 				
 										<div class="form-group">
-											<label for="exampleInputEmail1">اسم القسم</label>
+											<label for="exampleInputEmail1">نوع العقار</label>
 											<input type="text" class="form-control" id="name" name="name">
 										</div>
 				
@@ -175,7 +175,7 @@
 			{{ csrf_field() }}
 			<input type="hidden" name="id" id="id" value="">
 			<div class="form-group">
-				<label for="recipient-name" class="col-form-label">اسم القسم</label>
+				<label for="recipient-name" class="col-form-label">نوع العقار</label>
 				<input class="form-control" name="name" id="name" type="text">
 			</div>
 			<div class="form-group">

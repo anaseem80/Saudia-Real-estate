@@ -57,7 +57,7 @@
                 <div class="flex-1">
                     <h4 class="font-recoleta leading-none text-[28px] text-white mb-[10px]">العنوان . <span
                             class="text-secondary">.</span></h4>
-                    <p class="font-light text-[18px] lg:max-w-[230px] text-white">الامارات بجوار برج خليفه</p>
+                    <p class="font-light text-[18px] lg:max-w-[230px] text-white">السعوديه بجوار برج خليفه</p>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                 <div class="flex-1">
                     <h4 class="font-recoleta leading-none text-[28px] text-white mb-[10px]">اتصل بنا . <span
                             class="text-secondary">.</span></h4>
-                    <p class="font-light text-[18px] lg:max-w-[230px] text-white">الامارات بجوار برج خليفه</p>
+                    <p class="font-light text-[18px] lg:max-w-[230px] text-white">السعوديه بجوار برج خليفه</p>
                 </div>
             </div>
 

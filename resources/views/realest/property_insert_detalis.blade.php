@@ -161,7 +161,7 @@
                     <div class="row row-sm">
                         <div class="col-lg">
                             <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                                placeholder="اسم العقار" type="text" name="name" value="{{ $property->name }}"
+                                placeholder="عنوان العقار" type="text" name="name" value="{{ $property->name }}"
                                 readonly>
                             @if ($errors->has('name'))
                                 <div class="invalid-feedback">

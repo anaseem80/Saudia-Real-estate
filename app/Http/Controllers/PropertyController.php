@@ -174,13 +174,17 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-
+            
         
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'real_estate_advertisement_number' => 'required|string|max:255', 
+            'negotiate' => 'required|string',
             'country' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
             'catogerie_id' => 'required|integer',
-            'price' => 'required|numeric',
+            'price_all' => 'required|numeric',
+            'price_meter' => 'required|numeric',
             'description' => 'required|string',
             'space' => 'required|numeric',
             'numbeer_room' => 'required|integer',
@@ -189,29 +193,34 @@ class PropertyController extends Controller
            // 'classification' => 'required|string',
             // 'seller_phone' => 'string',
             "Rental_term"=> 'required|string',
-            'address' =>'required|string',
+            // 'address' =>'required|string',
           //  "classification"=> "volvo",
             'images.*' => 'required|image|max:2048',
 
         ],[
-            'name.required' =>'يرجي ادخال اسم العقار',
+            'name.required' =>'يرجي ادخال عنوان العقار',
             'image.required' =>'يرجي ادخال الصوره',
             'images.required' =>'يرجي ادخال الصوره',
-            'country' => 'يرجي ادخال المدينه',
+            'country' => 'يرجي ادخال الدوله',         
+            'city' => 'يرجي ادخال المدينه',
+            'real_estate_advertisement_number' => 'يرجي ادخال رقم اعلان العقار',
             'catogerie_id' => 'يرجي ادخال نوع العقار',
-            'price' => 'يرجي ادخال السعر',
+            'price_meter' => '  يرجي ادخال السعر لكل متر' ,  
+            'price_all' => ' يرجي ادخال السعر الاجمالي' ,
             'description' => 'يرجي ادخال الوصف',
             'space' => 'يرجي ادحال المساحه',
             'numbeer_room' => 'يرجي ادخال عدد الغرف',
             'property_direction' => 'يرجي ادحال الاتجاه',
             'numbeer_toilet' => 'يرجي ادخال عدد الحمامات',    
-            'address' =>'يرجي ادخال العنوان',
+            // 'address' =>'يرجي ادخال العنوان',
             'Rental_term' =>'يرجي ادخال المده',
           // 'images.required' =>'يرجي ادخال الصوره',
            'space.numeric' =>'يرجي ادخال المساحه عدد وليس اي شئ اخر',
-           'price.numeric' =>'يرجي ادخال السعر عدد وليس اي شئ اخر',
+           'price_meter.numeric' =>'يرجي ادخال السعر عدد وليس اي شئ اخر',
+           'price_all.numeric' =>'يرجي ادخال السعر عدد وليس اي شئ اخر',
 
         ]);   
+
         $imagessss = $request->file('images');
       
         $filename = time().'.'.$imagessss[0]->getClientOriginalExtension();
@@ -219,24 +228,29 @@ class PropertyController extends Controller
         ///
         $property = new Property(); 
         $property->name = $request->name; 
+        $property->real_estate_advertisement_number = $request->real_estate_advertisement_number; 
         $property->views = 0; 
         $property->country = $request->country; 
+        $property->city = $request->city; 
         $property->catogerie_id = $request->catogerie_id; 
         $property->user_id = Getuserid();  
         $property->picture =$path;
-        if (Auth::User()->user_type=='admin') {
+        // if (Auth::User()->user_type=='admin') {
             $property->status =1; 
-        } else {
-            $property->status =0; 
-        }
+        // } else {
+        //     $property->status =0; 
+        // }
         
         $property->save();
 
 
         $propertyDetalis = new PropertyDetalis(); 
-        $propertyDetalis->price = $request->price; 
+        $propertyDetalis->price_all = $request->price_all;   
+        $propertyDetalis->price_meter = $request->price_meter; 
+
         $propertyDetalis->description = $request->description; 
         $propertyDetalis->space = $request->space; 
+
       //  $propertyDetalis->numbeer_toilet = $request->name; 
         $propertyDetalis->numbeer_room = $request->numbeer_room; 
         $propertyDetalis->property_direction = $request->property_direction; 
@@ -244,11 +258,17 @@ class PropertyController extends Controller
         $propertyDetalis->longitude = "35.89999"; 
         $propertyDetalis->latitude = "37.8888"; 
       //  $propertyDetalis->classification = $request->classification; 
-        $propertyDetalis->seller_phone = $request->country; 
+        // $propertyDetalis->seller_phone = $request->country; 
         $propertyDetalis->property_id = $property->id;
-        $propertyDetalis->Rental_term = "1.55"; 
+        $propertyDetalis->Rental_term =  $request->Rental_term;  
+        if ($request->negotiate =="on" ) {
+            $propertyDetalis->negotiate = true;
+        } else {
+            $propertyDetalis->negotiate = false;
+                }
+        
       //  $propertyDetalis->picture = 'catogeryimage/'.$filename;
-        $propertyDetalis->building_type = 'سكني';
+        // $propertyDetalis->building_type = 'سكني';
         $propertyDetalis->save();
 
         

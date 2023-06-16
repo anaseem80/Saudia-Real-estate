@@ -27,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 require __DIR__.'/auth.php';
+
 Route::get('/send',function () {
     Mail::to('d4a3bd7aa2@boxmail.lol')->send(new Testmail);
 
@@ -40,6 +42,7 @@ Route::get('/send',function () {
 // Route::get('/dashboard', function () {
 //     return view('realest.dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/about', function () {
     $catogerys = Catogery::all();
  
@@ -53,10 +56,10 @@ Route::get('/conactUs', function () {
 })->name('conactUs');
 
 Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
-Route::get('auth/login', function () {return view('front_end.auth.login');})->name('login');
-Route::get('auth/register', function () {return view('front_end.auth.register');})->name('register');
-Route::get('auth/reset', function () {return view('front_end.auth.reset_password');})->name('reset');
-Route::get('auth/change', function () {return view('front_end.auth.change_password');})->name('change');
+// Route::get('auth/login', function () {return view('front_end.auth.login');})->name('login');
+// Route::get('auth/register', function () {return view('front_end.auth.register');})->name('register');
+// Route::get('auth/reset', function () {return view('front_end.auth.reset_password');})->name('reset');
+// Route::get('auth/change', function () {return view('front_end.auth.change_password');})->name('change');
 
 
 Route::controller(BlogController::class)->group(function () {

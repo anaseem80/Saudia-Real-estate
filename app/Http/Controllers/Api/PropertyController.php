@@ -224,7 +224,7 @@ class PropertyController extends Controller
            // 'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ],[
-            'name.required' =>'يرجي ادخال اسم العقار',
+            'name.required' =>'يرجي ادخال عنوان العقار',
             'image.required' =>'يرجي ادخال الصوره',
             'images.required' =>'يرجي ادخال الصوره',
             'country' => 'يرجي ادخال المدينه',

@@ -51,7 +51,7 @@
       </div>
       <div class="py-[20px] px-[20px]">
         <h3><a href="properties-details.html" class="font-recoleta leading-tight text-[22px] xl:text-lg text-primary">{{$item->name}}</a></h3>
-        <h4><a href="detelisscreen" style="color: white !important;">جمهورية الامارات العربية المتحدة</a></h4>
+        <h4><a href="detelisscreen" style="color: white !important;">جمهورية السعوديه العربية المتحدة</a></h4>
         <span class="font-light text-sm text-white">{{$item->created_at->format('Y-m-d H:i:s')}}</span>
         <div>
         <span class="font-recoleta text-primary px-[15px]">{{$item->country}}</span>

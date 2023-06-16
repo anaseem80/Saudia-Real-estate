@@ -17,7 +17,7 @@ class CountryTableSeeder extends Seeder
     {
         
              Country::create([
-                'name' => 'الامارات',
+                'name' => 'السعوديه',
                 
             
                 'created_at' => now(),
