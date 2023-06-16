@@ -52,11 +52,9 @@ Route::get('/conactUs', function () {
     return view('realest.conactUs',['catogerys' => $catogerys]);
 })->name('conactUs');
 
-Route::get('/goTest', function () {
-
- 
-    return view('front_end.test');
-})->name('goTest');
+Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
+Route::get('/login', function () {return view('front_end.login');})->name('login');
+Route::get('/register', function () {return view('front_end.register');})->name('register');
 
 Route::controller(BlogController::class)->group(function () {
 Route::get('/blogview',  'index')->name('blogview');

@@ -67,6 +67,8 @@
 
  ***/
 
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+
 
 body {
   font-size:16px;
@@ -74,7 +76,7 @@ body {
   line-height:26px;
   font-weight:400;
   background:#ffffff;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   background-size:cover;
   background-repeat:no-repeat;
   background-position:center top;
@@ -120,7 +122,7 @@ body {
 
 
 a{
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   text-decoration:none;
   transition:all 500ms ease;
   -moz-transition:all 500ms ease;
@@ -135,7 +137,7 @@ a:hover{
 }
 
 input,button,select,textarea{
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   font-weight: 400;
   font-size: 15px;
 }
@@ -172,7 +174,7 @@ textarea:focus{
 
 p{
   position: relative;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   color: #93959e;
   font-weight: 400;
   margin: 0px;
@@ -181,7 +183,7 @@ p{
 
 h1,h2,h3,h4,h5,h6{
   position:relative;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   font-weight: 400;
   color: #2d2929;
   margin: 0px;
@@ -251,7 +253,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .handle-preloader .animation-preloader .txt-loading .letters-loading{
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   font-weight: 400;
   letter-spacing: 15px;
   display: inline-block;
@@ -366,7 +368,7 @@ img {
   vertical-align: middle;
   font-size: 17px;
   line-height: 25px;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Changa', sans-serif;
   font-weight: 500;
   text-align: center;
   padding: 15.5px 34px;
@@ -979,7 +981,7 @@ img {
   font-size:15px;
   text-transform:capitalize;
   color:#2d2929;
-  text-align: left;
+  text-align: right;
   transition:all 500ms ease;
   -moz-transition:all 500ms ease;
   -webkit-transition:all 500ms ease;
@@ -1102,7 +1104,7 @@ img {
   font-size:15px;
   text-transform:capitalize;
   color:#2d2929;
-  text-align: left;
+  text-align: right;
   transition:all 500ms ease;
   -moz-transition:all 500ms ease;
   -webkit-transition:all 500ms ease;
@@ -3520,6 +3522,7 @@ div#mCSB_1_container{
 .footer-top{
   position: relative;
   padding: 115px 0px 120px 0px;
+  text-align: right;
 }
 
 .footer-top .widget-title{
@@ -3635,7 +3638,7 @@ div#mCSB_1_container{
   position: relative;
   display: block;
   margin-bottom: 20px;
-  padding-left: 30px;
+  padding-right: 30px;
   font-size: 16px;
   line-height: 26px;
   color: rgba(255,255,255,0.5);
@@ -3643,7 +3646,7 @@ div#mCSB_1_container{
 
 .footer-top .contact-widget .info-list li i{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 2px;
   font-size: 20px;
 }
@@ -5611,7 +5614,7 @@ div#mCSB_1_container{
 
 .banner-style-three .content-box{
   max-width: 520px;
-  text-align: left;
+  text-align: right;
 }
 
 .banner-style-three .banner-carousel .slide-item{
@@ -6833,6 +6836,7 @@ div#mCSB_1_container{
 .default-form input[type="tel"],
 .default-form input[type="number"],
 .default-form input[type="password"],
+.default-form select,
 .default-form textarea{
   position: relative;
   display: block;
@@ -8353,12 +8357,12 @@ div#mCSB_1_container{
 
 .pricing-section .tab-buttons li:first-child{
   padding: 0px 60px 0px 0px;
-  text-align: left;
+  text-align: right;
 }
 
 .pricing-section .tab-buttons li:last-child{
   padding: 0px 0px 0px 55px;
-  text-align: left;
+  text-align: right;
 }
 
 .pricing-section .tab-btns li.active-btn:before {
@@ -8965,7 +8969,7 @@ div#mCSB_1_container{
 
 .ragister-section .inner-box h4{
   display: block;
-  text-align: left;
+  text-align: right;
   font-size: 20px;
   line-height: 30px;
   font-weight: 500;
@@ -8980,7 +8984,7 @@ div#mCSB_1_container{
 .ragister-section .inner-box .form-group label{
   position: relative;
   display: block;
-  text-align: left;
+  text-align: right;
   font-size: 15px;
   line-height: 24px;
   color: #2d2929;
@@ -9719,7 +9723,7 @@ div#mCSB_1_container{
   margin: 0px;
   border: none;
   z-index: 999999;
-  text-align: left;
+  text-align: right;
   -webkit-overflow-scrolling: touch;
   transition: all 500ms ease;
 }

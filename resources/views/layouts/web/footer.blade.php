@@ -5,27 +5,25 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget about-widget">
                         <div class="widget-title">
-                            <h3>About</h3>
+                            <h3>عنا</h3>
                         </div>
                         <div class="text">
-                            <p>Lorem ipsum dolor amet consetetur adi pisicing elit sed eiusm tempor in cididunt ut labore dolore magna aliqua enim ad minim venitam</p>
-                            <p>Quis nostrud exercita laboris nisi ut aliquip commodo.</p>
+                            <p>لوريم إيبسوم(Lorem Ipsum) هو من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget links-widget ml-70">
                         <div class="widget-title">
-                            <h3>Services</h3>
+                            <h3>الخدمات</h3>
                         </div>
                         <div class="widget-content">
                             <ul class="links-list class">
-                                <li><a href="index.html">About Us</a></li>
-                                <li><a href="index.html">Listing</a></li>
-                                <li><a href="index.html">How It Works</a></li>
-                                <li><a href="index.html">Our Services</a></li>
-                                <li><a href="index.html">Our Blog</a></li>
-                                <li><a href="index.html">Contact Us</a></li>
+                                <li><a href="index.html">عنا</a></li>
+                                <li><a href="index.html">كيف نعمل</a></li>
+                                <li><a href="index.html">خدماتنا</a></li>
+                                <li><a href="index.html">المدونة</a></li>
+                                <li><a href="index.html">تواصل معنا</a></li>
                             </ul>
                         </div>
                     </div>
@@ -33,18 +31,18 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget post-widget">
                         <div class="widget-title">
-                            <h3>Top News</h3>
+                            <h3>اخر الأخبار</h3>
                         </div>
                         <div class="post-inner">
                             <div class="post">
                                 <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
-                                <p>Mar 25, 2020</p>
+                                <h5><a href="blog-details.html">تجربة إضافة خبر جديد</a></h5>
+                                <p>مارس 25, 2020</p>
                             </div>
                             <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
-                                <p>Mar 24, 2020</p>
+                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
+                                <h5><a href="blog-details.html">تجربة إضافة خبر جديد</a></h5>
+                                <p>مارس 25, 2020</p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +50,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget contact-widget">
                         <div class="widget-title">
-                            <h3>Contacts</h3>
+                            <h3>تواصل معنا</h3>
                         </div>
                         <div class="widget-content">
                             <ul class="info-list clearfix">
@@ -71,11 +69,11 @@
             <div class="inner-box clearfix">
                 <figure class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png" alt=""></a></figure>
                 <div class="copyright pull-left">
-                    <p><a href="index.html">Realshed</a> &copy; 2021 All Right Reserved</p>
+                    <p><a href="index.html">Realshed</a> &copy; جميع الحقوق محفوظة لدي</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="index.html">Terms of Service</a></li>
-                    <li><a href="index.html">Privacy Policy</a></li>
+                    <li><a href="index.html">شروط الخدمة</a></li>
+                    <li><a href="index.html">سياسة الخصوصية</a></li>
                 </ul>
             </div>
         </div>

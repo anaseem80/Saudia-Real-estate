@@ -1,10 +1,11 @@
    <title>@yield("title")</title>
-<!-- Fav Icon -->
-<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+   <!-- Fav Icon -->
+   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
 
     @yield('css')
     <!-- Vendor CSS (Bootstrap & Icon Font) -->
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/switcher-style.css')}}" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/style.css')}}" />  
+    <link rel="stylesheet" href="{{URL::asset('assets/css_web/rtl.css')}}" />  
 
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/responsive.css')}}" /> 
 
