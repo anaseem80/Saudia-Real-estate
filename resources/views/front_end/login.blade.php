@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>كلمة المرور</label>
-                                        <input type="password" name="name" required="">
+                                        <input type="password" name="password" required="">
                                     </div>
                                     <div class="form-group message-btn">
                                         <button type="submit" class="theme-btn btn-one">تسجيل الدخول</button>
