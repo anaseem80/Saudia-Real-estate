@@ -48,7 +48,6 @@
             <div class="col-xl-8 col-lg-12 col-md-12 offset-xl-2 big-column m-auto">
                 <div class="sec-title">
                     <h5>تسجيل جديد</h5>
-                    <h2>تسجيل جديد مع عقارك</h2>
                 </div>
                 <div class="tabs-box">
                     {{-- <div class="tab-btn-box">
@@ -60,7 +59,6 @@
                     <div class="tabs-content">
                         <div class="tab active-tab" id="tab-1">
                             <div class="inner-box">
-                                <h4>تسجيل جديد</h4>
                                 <form action="signin.html" method="post" class="default-form">
                                     <div class="form-group">
                                         <label for="name">اسم المستخدم</label>

@@ -53,8 +53,11 @@ Route::get('/conactUs', function () {
 })->name('conactUs');
 
 Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
-Route::get('/login', function () {return view('front_end.login');})->name('login');
-Route::get('/register', function () {return view('front_end.register');})->name('register');
+Route::get('auth/login', function () {return view('front_end.auth.login');})->name('login');
+Route::get('auth/register', function () {return view('front_end.auth.register');})->name('register');
+Route::get('auth/reset', function () {return view('front_end.auth.reset_password');})->name('reset');
+Route::get('auth/change', function () {return view('front_end.auth.change_password');})->name('change');
+
 
 Route::controller(BlogController::class)->group(function () {
 Route::get('/blogview',  'index')->name('blogview');

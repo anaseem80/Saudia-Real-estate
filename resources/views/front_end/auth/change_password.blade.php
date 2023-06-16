@@ -1,10 +1,28 @@
 @extends('layouts.web.master_web')
+
+
+
+
+
+
+
+
+
 @section('css')
 
 @section('title')
-    تسجيل دخول
+    إعادة تعيين كلمة المرور
 @stop
 @endsection
+
+
+
+
+
+
+
+
+
 
 
 @section('content')
@@ -16,7 +34,7 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1 class="m-0">تسجيل الدخول</h1>
+            <h1 class="m-0">إعادة تعيين كلمة المرور</h1>
             {{-- <ul class="bread-crumb clearfix">
                 <li><a href="index.html">الرئيسة</a></li>
                 <li>تسجيل الدخول</li>
@@ -31,8 +49,7 @@
         <div class="row clearfix">
             <div class="col-xl-8 col-lg-12 col-md-12 offset-xl-2 big-column m-auto">
                 <div class="sec-title">
-                    <h5>تسجيل الدخول</h5>
-                    <h2>تسجيل الدخول مع عقارك</h2>
+                    <h5>إعادة تعيين كلمة المرور</h5>
                 </div>
                 <div class="tabs-box">
                     {{-- <div class="tab-btn-box">
@@ -44,23 +61,19 @@
                     <div class="tabs-content">
                         <div class="tab active-tab">
                             <div class="inner-box">
-                                <h4>تسجيل الدخول</h4>
                                 <form action="signin.html" method="post" class="default-form">
                                     <div class="form-group">
-                                        <label>البريد الإلكتروني</label>
-                                        <input type="email" name="email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>كلمة المرور</label>
+                                        <label>كلمة المرور الجديدة</label>
                                         <input type="password" name="password" required="">
                                     </div>
+                                    <div class="form-group">
+                                        <label>تأكيد كلمةالسر</label>
+                                        <input type="text" name="repassword" required="">
+                                    </div>
                                     <div class="form-group message-btn">
-                                        <button type="submit" class="theme-btn btn-one">تسجيل الدخول</button>
+                                        <button type="submit" class="theme-btn btn-one">تغيير كلمة المرور</button>
                                     </div>
                                 </form>
-                                <div class="othre-text">
-                                    <p>ليس لديك حساب؟ <a href="{{route('register')}}">تسجيل حساب جديد</a></p>
-                                </div>
                             </div>
                         </div>
                     </div>
