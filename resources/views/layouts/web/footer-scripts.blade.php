@@ -17,7 +17,7 @@
 
 <script src="{{URL::asset('assets/js_web/jQuery.style.switcher.min.js')}}"></script>
 <script src="{{URL::asset('assets/js_web/jquery-ui.js')}}"></script>
-<script src="{{URL::asset('assets/js_web/jquery-ui.js')}}"></script>
+<script src="{{URL::asset('assets/js_web/nav-tool.js')}}"></script>
 <script src="{{URL::asset('assets/js_web/product-filter.js')}}"></script>
 
 
