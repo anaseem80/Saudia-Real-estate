@@ -3430,14 +3430,14 @@ div#mCSB_1_container{
 
 .download-section .image-box .image{
   position: absolute;
-  bottom: -125px;
+  bottom: -70px;
 }
 
 .download-section .image-box .image-1{
   left: 0px;
 }
 .download-section .image-box .image-2 img{
-  height: 450px;
+  height: 430px;
   width: 100%;
 }
 .download-section .image-box .image-2{
@@ -3602,7 +3602,7 @@ div#mCSB_1_container{
 .footer-top .post-widget .post{
   position: relative;
   display: block;
-  padding: 0px 0px 6px 115px;
+  padding: 0px 115px 6px 0;
   margin-bottom: 38px;
   min-height: 88px;
 }
@@ -3613,7 +3613,7 @@ div#mCSB_1_container{
 
 .footer-top .post-widget .post .post-thumb{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: -2px;
   width: 90px;
   height: 90px;

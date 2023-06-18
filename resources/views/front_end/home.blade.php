@@ -11,7 +11,7 @@
 @section('css')
 
 @section('title')
-    empty new
+    الرئيسية
 @stop
 @endsection
 
