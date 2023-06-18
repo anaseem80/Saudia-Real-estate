@@ -15,8 +15,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-      $country=  Country::all();
-     return view('realest.country_view',['country'=>  $country]);
+        $country =  Country::all();
+        return view('realest.country_view', ['countrys' =>  $country]);
     }
 
     /**
@@ -31,32 +31,26 @@ class CountryController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {        
+    {
         $validatedData = $request->validate([
-        'name' => 'required|unique:countries|max:255',
-        
-    ],[
+            'name' => 'required|unique:countries|max:255',
+            'code' => 'required|unique:countries|max:255',
 
-        'name.required' =>'يرجي ادخال اسم الدوله',
-      
-        'name.unique' =>'اسم الدوله مسجل مسبقا',
+        ], [
+
+            'name.required' => 'يرجي ادخال اسم الدوله',
+            'name.unique' => 'اسم الدوله مسجل مسبقا',
+            'code.required' => 'يرجي ادخال كود الدوله',
+            'code.unique' => 'كود الدوله مسجل مسبقا',
+
+        ]);
 
 
-    ]);
-    $inpout = $request->all();
-    $b_exist=Country::where('name','=',$inpout['name'])->exists();
-
-    if($b_exist){
-
-        session()->flash('Erorr', 'اسم الدوله موجود بالفعل');
+        $datacountry = new Country();
+        $datacountry->name = $request->name;
+        $datacountry->code = $request->code;
+        $datacountry->save();
         return back();
-
-    }else{
-       $datacountry=new Country();
-       $datacountry->name=$request->name;   
-       $datacountry->save();
-       return back();
-    }
     }
 
     /**
@@ -82,27 +76,28 @@ class CountryController extends Controller
     {
         $id = $request->id;
 
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|unique:countries|max:255',
-          //  'image' => 'required',
-        ],[
+            'code' => 'required|unique:countries|max:255',
 
-            'name.required' =>'يرجي ادخال اسم الدوله',
-          //  'image.required' =>'يرجي ادخال الصوره',
-            'name.unique' =>'اسم الدوله مسجل مسبقا',
+        ], [
 
+            'name.required' => 'يرجي ادخال اسم الدوله',
+            'name.unique' => 'اسم الدوله مسجل مسبقا',
+            'code.required' => 'يرجي ادخال كود الدوله',
+            'code.unique' => 'كود الدوله مسجل مسبقا',
 
         ]);
 
         $sections = Country::findOrFail($id);
-    
-        
+
+
         $sections->update([
             'name' => $request->name,
-           
+            'code' => $request->code,
         ]);
 
-        session()->flash('edit','تم تعديل الدوله بنجاج');
+        session()->flash('edit', 'تم تعديل الدوله بنجاج');
         return back();
     }
 
@@ -114,7 +109,7 @@ class CountryController extends Controller
         $id = $request->id;
         $sections = Country::findorFail($id);
         $sections->delete();
-        session()->flash('delete','تم حذف الدوله بنجاح');
+        session()->flash('delete', 'تم حذف الدوله بنجاح');
         return back();
     }
 }

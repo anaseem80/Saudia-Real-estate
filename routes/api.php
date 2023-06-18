@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ResetPasswordController;
 
 use App\Http\Controllers\Api\ForgotPasswordApiController;
 use App\Http\Controllers\Api\ProfileMobileController;
+use App\Http\Controllers\SettingWebController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\PersonalAccessToken;
@@ -41,7 +42,6 @@ Route::middleware('sanctum')->get('/user', function (Request $request) {
     $user = $accessToken->tokenable;
     return $user;
 });
-
 
 Route::controller(AuthaaController::class)->group(function () {
     Route::post('/login', 'login');

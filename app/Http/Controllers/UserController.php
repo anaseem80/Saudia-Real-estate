@@ -37,27 +37,40 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
          
-            'phone' => 'required|numeric',
+        //     'phone' => 'required|numeric',
     
     
-        ],[
+        // ],[
     
         
-            'phone.numeric' =>'يرجي ادخال رقم الهاتف عدد وليس اي شئ اخر',
-        ]);
+        //     'phone.numeric' =>'يرجي ادخال رقم الهاتف عدد وليس اي شئ اخر',
+        // ]);
 
         $user = new User(); // اسم المودل
         $user->name = $request->name; 
-
         $user->user_type = $request->user_type;
-        $user->phone = $request->phone;
+        $user->first_phone = $request->first_phone; 
+        $user->second_phone = $request->second_phone;
         $user->country = $request->country;
+        $user->city = $request->city;
+        $user->advertiser_type = $request->advertiser_type;
+        if ($request-> advertiser_type=="user") {
+            $user->user_type = "user";
+        }else{
+            $user->user_type = "vendor";
+        }
+        if ($request-> advertiser_type=="office"|| $request-> advertiser_type=="owner") {
+            $user->commercial_registration_no = $request->commercial_registration_no;
+            $user->license_number = $request->license_number;
+        } else if($request-> advertiser_type=="broker") {
+            $user->license_number = $request->license_number;
+        }
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        session()->flash('Edit', 'تم اضافة المستخدم بنجاح');
+        session()->flash('Add', 'تم اضافة المستخدم بنجاح');
         return back();
   
     }
@@ -93,21 +106,13 @@ class UserController extends Controller
      */
     public function update(Request $request)
         {
-            $request->validate([
-            
-            'phone' => 'required|numeric',
-
-
-        ],[
-
-           
-            'phone.numeric' =>'يرجي ادخال رقم الهاتف عدد وليس اي شئ اخر',
-        ]);
+       
            $user =  User::findorFail($request->pro_id);
            $user->name = $request->name; 
-           $user->user_type = $request->user_type;
-           $user->phone = $request->phone;
+           $user->first_phone = $request->first_phone; 
+           $user->second_phone = $request->second_phone;
            $user->country = $request->country;
+           $user->city = $request->city;
            $user->save();
 
            session()->flash('Edit', 'تم تعديل المستخدم بنجاح');

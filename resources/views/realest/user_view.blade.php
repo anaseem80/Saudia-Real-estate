@@ -32,7 +32,15 @@
     <!-- breadcrumb -->
 @endsection
 @section('content')
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if (session()->has('Add'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session()->get('Add') }}</strong>
@@ -108,16 +116,19 @@
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>{{ $user->name }}</td>
-                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $user->first_phone }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->user_type }}</td>
                                         <td>{{ $user->country }}</td>
                                         <td>
 
-                                            <button class="btn btn-outline-success btn-sm" data-name="{{ $user->name }}"
-                                                data-pro_id="{{ $user->id }}" data-user_type={{ $user->user_type }}
-                                                data-phone="{{ $user->phone }}" data-country="{{ $user->country }}"
-                                                data-number_ads="{{ $user->number_ads }}"
+                                            <button class="btn btn-outline-success btn-sm" 
+                                                data-name="{{ $user->name }}"
+                                                data-pro_id="{{ $user->id }}"
+                                                data-first_phone={{ $user->first_phone }}
+                                                data-second_phone={{ $user->second_phone }}
+                                                data-city="{{ $user->city }}"
+                                                data-country="{{ $user->country }}"
                                                 data-toggle="modal" data-target="#edit_user">تعديل</button>
 
 
@@ -156,23 +167,65 @@
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
 
-                            <div class="mb-4">
-                                <p class="mg-b-10">القسم</p>
-                                <select name="user_type" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <option title="Volvo is a car"  value="admin">مسؤال</option>
-                                    <option value="user">مستخدم</option>
 
+
+                            {{-- <div class="mb-4">
+                                <p class="mg-b-10">نوع المستخدم</p>
+                                <select name="advertiser_type" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                    <option title="office" value="office">مكتب</option>
+                                    <option title="broker" value="broker">وسيط</option>                                   
+                                     <option title="owner" value="owner">مالك</option>
+                                    <option title="user" value="user">مستخدم</option>
+                                </select>
+                            </div> --}}
+                            <div class="mb-4">
+                                <p class="mg-b-10">نوع المستخدم</p>
+                                <select name="advertiser_type" class="form-control SlectBox"
+                                    onchange="toggleFields(this.value)">
+                                    <option title="user" value="user">مستخدم</option>
+
+                                    <option title="office" value="office">مكتب</option>
+                                    <option title="broker" value="broker">وسيط</option>
+                                    <option title="owner" value="owner">مالك</option>
                                 </select>
                             </div>
 
+
+
+
+
+
                             <div class="form-group">
-                                <label for="title">رقم الهاتف</label>
-                                <input type="text" class="form-control" name="phone" id="phone">
+                                <label for="title">رقم الهاتف الاول</label>
+                                <input type="text" class="form-control" name="first_phone" id="first_phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">رقم الهاتف الثاني</label>
+                                <input type="text" class="form-control" name="second_phone" id="second_phone">
                             </div>
                             <div class="form-group">
                                 <label for="title">البلد </label>
                                 <input type="text" class="form-control" name="country" id="country">
                             </div>
+                            <div class="form-group">
+                                <label for="title">المدينه </label>
+                                <input type="text" class="form-control" name="city" id="city">
+                            </div>
+
+
+
+                            <div class="form-group" id="commercialFields" style="display: none;">
+                                <label for="commercial_registration_no">رقم السجل التجاري</label>
+                                <input type="text" class="form-control" name="commercial_registration_no"
+                                    id="commercial_registration_no">
+                            </div>
+
+                            <div class="form-group" id="licenseFields" style="display: none;">
+                                <label for="license_number">رقم الرخصة</label>
+                                <input type="text" class="form-control" name="license_number" id="license_number">
+                            </div>
+
                             <div class="form-group">
                                 <label for="title">البريد الاكتروني </label>
                                 <input type="text" class="form-control" name="email" id="email">
@@ -182,7 +235,7 @@
                                 <input type="password" class="form-control" name="password" id="password">
                             </div>
 
-                          
+
                         </div>
 
                         <div class="modal-footer">
@@ -191,6 +244,8 @@
                         </div>
 
                     </form>
+
+
                 </div>
             </div>
         </div>
@@ -209,8 +264,31 @@
                     <form action='user.update' method="post">
                         {{ method_field('post') }}
                         {{ csrf_field() }}
-                        <div class="modal-body">
 
+
+
+
+                        {{-- <div class="mb-4">
+                                <p class="mg-b-10">القسم</p>
+                                <select id="user_type" name="user_type" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                    <option title="Volvo is a car" value="admin">مسؤال</option>
+
+                                    <option value="user">مستخدم</option>
+
+                                </select>
+                            </div> --}}
+
+
+
+
+                        {{-- <div class="form-group">
+                                <label for="title">عدد الاعلانات المسموح بها</label>
+                             
+                                <input type="text" class="form-control" name="number_ads" id="number_ads">
+                            </div> --}}
+
+                        <div class="modal-body">
                             <div class="form-group">
                                 <label for="title">اسم المستخدم :</label>
 
@@ -220,39 +298,27 @@
                                 <input type="text" class="form-control" name="name" id="name">
                             </div>
 
-                          
-
-
-                            <div class="mb-4">
-                                <p class="mg-b-10">القسم</p>
-                                <select id="user_type" name="user_type" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <option title="Volvo is a car"  value="admin">مسؤال</option>
-
-                                    <option value="user">مستخدم</option>
-
-                                </select>
+                            <div class="form-group">
+                                <label for="title">رقم الهاتف الاول</label>
+                                <input type="text" class="form-control" name="first_phone" id="first_phone"
+                                    value="">
                             </div>
-
-
-
-
-                            <div class="form-group">       
-                                <label for="title">عدد الاعلانات المسموح بها</label>
-                                {{-- <input type="hidden" class="form-control" name="pro_id" id="pro_id"
-                                    value=""> --}}
-                                <input type="text" class="form-control" name="number_ads" id="number_ads">
-                            </div>
-
-
 
                             <div class="form-group">
-                                <label for="title">رقم الهاتف</label>
-                                <input type="text" class="form-control" name="phone" id="phone">
+                                <label for="title">رقم الهاتف الثاني</label>
+                                <input type="text" class="form-control" name="second_phone" id="second_phone"
+                                    value="">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="title">البلد </label>
-                                <input type="text" class="form-control" name="country" id="country">
+                                <input type="text" class="form-control" name="country" id="country"
+                                    value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">المدينه </label>
+                                <input type="text" class="form-control" name="city" id="city"
+                                    value="">
                             </div>
 
                         </div>
@@ -302,6 +368,22 @@
     <!-- main-content closed -->
 @endsection
 @section('js')
+    <script>
+        function toggleFields(selectedOption) {
+            var commercialFields = document.getElementById("commercialFields");
+            var licenseFields = document.getElementById("licenseFields");
+
+            commercialFields.style.display = "none";
+            licenseFields.style.display = "none";
+
+            if (selectedOption === "office" || selectedOption === "owner") {
+                commercialFields.style.display = "block";
+                licenseFields.style.display = "block";
+            } else if (selectedOption === "broker") {
+                licenseFields.style.display = "block";
+            }
+        }
+    </script>
     <!-- Internal Data tables -->
     <script src="{{ URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
@@ -335,18 +417,19 @@
         $('#edit_user').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var name = button.data('name')
-            var user_type = button.data('user_type')
             var pro_id = button.data('pro_id')
-            var phone = button.data('phone')
+            var first_phone = button.data('first_phone')
+            var second_phone = button.data('second_phone')
             var country = button.data('country')
-            var number_ads = button.data('number_ads')
+            var city = button.data('city')
+
             var modal = $(this)
             modal.find('.modal-body #name').val(name);
-            modal.find('.modal-body #user_type').val(user_type);
             modal.find('.modal-body #pro_id').val(pro_id);
-            modal.find('.modal-body #phone').val(phone);
+            modal.find('.modal-body #second_phone').val(second_phone);
             modal.find('.modal-body #country').val(country);
-            modal.find('.modal-body #number_ads').val(number_ads);
+            modal.find('.modal-body #city').val(city);
+            modal.find('.modal-body #first_phone').val(first_phone);
         })
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingWebController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebControlle;
 use App\Mail\Testmail;
@@ -76,6 +77,10 @@ Route::get('/blogs/{id}', 'show')->name('showblog');
 
 
 
+Route::controller(SettingWebController::class)->group(function () {
+    Route::get('/setting_web', 'index')->name('setting_web');
+
+});
 
 
 
