@@ -29,7 +29,7 @@
 <section class="ragister-section centred sec-pad rtl">
     <div class="auto-container">
         <div class="row clearfix">
-            <div class="col-xl-8 col-lg-12 col-md-12 offset-xl-2 big-column m-auto">
+            <div class="col-xl-8 col-lg-8 col-md-8 offset-xl-2 big-column m-auto">
                 <div class="sec-title">
                     <h5>تسجيل الدخول</h5>
                 </div>

@@ -56,6 +56,8 @@ Route::get('/conactUs', function () {
 })->name('conactUs');
 
 Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
+Route::get('/index', function () {return view('front_end.home');})->name('home');
+
 // Route::get('auth/login', function () {return view('front_end.auth.login');})->name('login');
 // Route::get('auth/register', function () {return view('front_end.auth.register');})->name('register');
 // Route::get('auth/reset', function () {return view('front_end.auth.reset_password');})->name('reset');

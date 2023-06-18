@@ -87,7 +87,7 @@
 }
 
 .search-field .tab-btn-box li.active-btn{
-  background-color: #2dbe6c;
+  background-color: #fff;
 }
 
 .ui-slider-horizontal .ui-slider-range{
@@ -95,7 +95,7 @@
 }
 
 .ui-slider .ui-slider-handle{
-  background-color: #2dbe6c;
+  background-color: #ffff;
 }
 
 .search-field .advanced-search .range-box input{

@@ -369,6 +369,7 @@
 			margin:50,
 			nav:true,
 			smartSpeed: 500,
+			rtl:true,
 			autoplay: 5000,
 			navText: [ '<span class="far fa-angle-left"></span>', '<span class="far fa-angle-right"></span>' ],
 			responsive:{

@@ -443,6 +443,7 @@
   .cta-section,
   .download-section .content-box{
     padding: 70px 0px;
+    text-align: center !important;
   }
 
   .news-section{
@@ -1164,4 +1165,19 @@
     margin-bottom: 15px;
   }
 
+}
+@media(max-width:767px){
+  .feature-block-one .inner-box .lower-content .more-details li{
+    float: none;
+    padding-right: 28px;
+  }
+  .feature-block-one .inner-box .lower-content .more-details{
+    text-align: right;
+  }
+  .inner-box{
+    text-align: center;
+  }
+  .inner-box h2{
+    text-align: center !important;
+  }
 }

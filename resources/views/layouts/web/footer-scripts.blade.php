@@ -21,3 +21,4 @@
 <script src="{{URL::asset('assets/js_web/product-filter.js')}}"></script>
 
 
+<script src="{{URL::asset('assets/js_web/script.js')}}"></script>

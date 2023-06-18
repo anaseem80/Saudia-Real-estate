@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/switcher-style.css')}}" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/style.css')}}" />  
-    <link rel="stylesheet" href="{{URL::asset('assets/css_web/rtl.css')}}" />  
+    {{-- <link rel="stylesheet" href="{{URL::asset('assets/css_web/rtl.css')}}" />   --}}
 
     <link rel="stylesheet" href="{{URL::asset('assets/css_web/responsive.css')}}" /> 
-

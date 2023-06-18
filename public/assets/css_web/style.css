@@ -388,7 +388,7 @@ img {
   content: '';
   width: 0%;
   height: 100%;
-  left: 0px;
+  right: 0px;
   top: 0px;
   z-index: -1;
   transition: all 500ms ease;
@@ -652,7 +652,7 @@ img {
   font-size: 15px;
   color: rgba(255,255,255,0.6);
   margin-right: 40px;
-  padding-left: 22px;
+  padding-right: 22px;
 }
 
 .header-top .info li:last-child{
@@ -671,7 +671,7 @@ img {
 
 .header-top .info li i{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 5px;
 }
 
@@ -1378,6 +1378,7 @@ img {
   display: block;
   line-height: 24px;
   padding: 10px 25px;
+  text-align: right;
   font-size: 15px;
   font-weight: 500;
   color: #ffffff;
@@ -1415,7 +1416,7 @@ img {
 
 .mobile-menu .navigation li.dropdown .dropdown-btn{
   position:absolute;
-  right:6px;
+  left:6px;
   top:6px;
   width:32px;
   height:32px;
@@ -1450,6 +1451,7 @@ img {
 .mobile-menu .social-links{
   position:relative;
   padding:0px 25px;
+  text-align: right;
 }
 
 .mobile-menu .social-links li{
@@ -1481,6 +1483,7 @@ div#mCSB_1_container{
 .mobile-menu .contact-info {
   position: relative;
   padding: 120px 30px 20px 30px;
+  text-align: right;
 }
 
 .mobile-menu .contact-info h4 {
@@ -1621,8 +1624,9 @@ div#mCSB_1_container{
   color: #808288;
   font-weight: 400;
   background: transparent;
+  text-align: right !important;
   border-radius: 5px;
-  padding: 0px 20px;
+  padding: 0px 45px;
   text-transform: uppercase;
 }
 
@@ -1631,7 +1635,7 @@ div#mCSB_1_container{
 }
 
 .search-field .top-search .column:last-child .nice-select{
-  padding: 0px 20px;
+  padding: 0px 45px;
 }
 
 .search-field{
@@ -1650,7 +1654,7 @@ div#mCSB_1_container{
 
 .search-field .top-search .search-form{
   position: relative;
-  padding: 25px 170px 32px 40px;
+  padding: 25px 40px 32px 170px;
 }
 
 .search-field .top-search .form-group{
@@ -1665,6 +1669,7 @@ div#mCSB_1_container{
   line-height: 26px;
   font-weight: 500;
   color: #0f172b;
+  text-align: right;
   margin-bottom: 7px;
 }
 
@@ -1710,6 +1715,7 @@ div#mCSB_1_container{
   border: 1px solid transparent;
   border-radius: 5px;
   font-size: 14px;
+  text-align: right;
   font-weight: 400 !important;
   color: #808288;
 }
@@ -1721,7 +1727,7 @@ div#mCSB_1_container{
 .search-field .top-search .search-btn{
   position: absolute;
   top: 0px;
-  right: 0px;
+  left: 0px;
   width: 140px;
   height: 100%;
   text-align: center;
@@ -1730,7 +1736,7 @@ div#mCSB_1_container{
 .search-field .top-search .search-btn button{
   position: absolute;
   top: 0px;
-  right: 0px;
+  left: 0px;
   display: inline-block;
   font-size: 17px;
   color: #ffffff;
@@ -1738,7 +1744,7 @@ div#mCSB_1_container{
   height: 100%;
   text-align: center;
   cursor: pointer;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px 0px 0px 5px;
   transition: all 500ms ease;
 }
 
@@ -1757,10 +1763,10 @@ div#mCSB_1_container{
   font-size: 15px;
   line-height: 26px;
   font-weight: 500;
-  color: #0f172b;
+  color: #fff;
   text-align: center;
   text-transform: uppercase;
-  background-color: #ffffff;
+  background-color: #2dbe6c;
   border-radius: 5px 5px 0px 0px;
   width: 120px;
   padding: 10px 10px;
@@ -1769,7 +1775,7 @@ div#mCSB_1_container{
 }
 
 .search-field .tab-btn-box li.active-btn{
-  color: #ffffff;
+  color: #000;
 }
 
 .search-field .advanced-search-text{
@@ -2168,12 +2174,12 @@ div#mCSB_1_container{
 
 .feature-block-one .inner-box .lower-content .author-info .author{
   position: relative;
-  padding: 7px 0px 7px 52px;
+  padding: 7px 52px 7px 0;
 }
 
 .feature-block-one .inner-box .lower-content .author-info .author .author-thumb{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 0px;
   width: 40px;
   height: 40px;
@@ -2307,7 +2313,7 @@ div#mCSB_1_container{
 
 .feature-block-one .inner-box .lower-content .more-details li i{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 3px;
   font-size: 14px;
 }
@@ -3424,13 +3430,16 @@ div#mCSB_1_container{
 
 .download-section .image-box .image{
   position: absolute;
-  bottom: -82px;
+  bottom: -125px;
 }
 
 .download-section .image-box .image-1{
   left: 0px;
 }
-
+.download-section .image-box .image-2 img{
+  height: 450px;
+  width: 100%;
+}
 .download-section .image-box .image-2{
   right: 0px;
 }

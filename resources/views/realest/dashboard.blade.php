@@ -153,278 +153,280 @@
 				<!-- row closed -->
 
 				<!-- row opened -->
-				<div class="row row-sm">  
-					<div class="col-xl-4 col-md-12 col-lg-12">
-						<div class="card">
-							<div class="card-header pb-1">
-								<h3 class="card-title mb-2">اخر العملاء استعلاما للعقارات</h3>
-								<p class="tx-12 mb-0 text-muted">العميل هو فرد أو شركة تشتري خدمة العقارات وقد تطورت لتشمل الوقت الفعلي</p>
-							</div>
-							<div class="card-body p-0 customers mt-1">
-								<div class="list-group list-lg-group list-group-flush">
-
-
-									@foreach ($last5Customers as $item)
-									<div class="list-group-item list-group-item-action" href="#">
-										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/3.jpg')}}" alt="Image description">
-											<div class="media-body">
-												<div class="d-flex align-items-center">
-													<div class="mt-0">
-														<h5 class="mb-1 tx-15">{{$item->username}}</h5>
-														<p class="mb-0 tx-13 text-muted">User ID: {{$item->id}}<span class="text-success ml-2">User email: {{$item->useremail}}</span></p>
+				<div class="container-fluid">
+					<div class="row row-sm">  
+						<div class="col-xl-3 col-md-12 col-lg-12 mb-3">
+							<div class="card h-100">
+								<div class="card-header pb-1">
+									<h3 class="card-title mb-2">اخر العملاء استعلاما للعقارات</h3>
+									<p class="tx-12 mb-0 text-muted">العميل هو فرد أو شركة تشتري خدمة العقارات وقد تطورت لتشمل الوقت الفعلي</p>
+								</div>
+								<div class="card-body p-0 customers mt-1">
+									<div class="list-group list-lg-group list-group-flush">
+	
+	
+										@foreach ($last5Customers as $item)
+										<div class="list-group-item list-group-item-action" href="#">
+											<div class="media mt-0">
+												<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/3.jpg')}}" alt="Image description">
+												<div class="media-body">
+													<div class="d-flex align-items-center">
+														<div class="mt-0">
+															<h5 class="mb-1 tx-15">{{$item->username}}</h5>
+															<p class="mb-0 tx-13 text-muted">User ID: {{$item->id}}<span class="text-success ml-2">User email: {{$item->useremail}}</span></p>
+														</div>
+														<span class="mr-auto wd-45p fs-16 mt-2">
+												
+														</span>
 													</div>
-													<span class="mr-auto wd-45p fs-16 mt-2">
-											
-													</span>
 												</div>
 											</div>
 										</div>
-									</div>
-									@endforeach
-									
-									
-									
-							
-
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-					<div class="col-xl-4 col-md-12 col-lg-6">
-						<div class="card">
-							<div class="card-header pb-1">
-								<h3 class="card-title mb-2">النشطات في التطبيق والموقع</h3>
-						
-							</div>
-							<div class="product-timeline card-body pt-2 mt-1">
-								<ul class="timeline-1 mb-0">
-									<li class="mt-0"> <i class="ti-pie-chart bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات </span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totalProperties}}  مجموع العقارات </p>
-									</li>
-									<li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات الغير نشطه</span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totaldontProperties}} العقارات الغير نشطه</p>
-									</li>
-									<li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الاستعلامات</span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totalQueries}}  جميع الاستعلامات</p>
-									</li>
-									<li class="mt-0"> <i class="ti-wallet bg-warning-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الابلاغات</span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totalReports}}  جميع الابلاغات</p>
-									</li>
-									<li class="mt-0"> <i class="si si-eye bg-purple-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد المستخدمين</span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totalUsers}} عدد المستخدمين</p>
-									</li>
-									{{-- <li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الدول </span> <a href="#" class="float-left tx-11 text-muted"></a>
-										<p class="mb-0 text-muted tx-12">{{$totalCountries}} عدد الدول</p>
-									</li> --}}
-								</ul>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-md-12 col-lg-4 col-xl-4">
-						<div class="card card-dashboard-eight pb-2">
-							<h6 class="card-title">احصائيه لاكثر مستخدمين الموقع</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي الدول المتواجد به مستخدمين للتطبيق والموقع </span>
-							<div class="list-group">
-							
-
-
-								@foreach ($mostuserCountries as $item)
-							
-								<div class="list-group-item border-top-0">
-									<i class="flag-icon flag-icon-Egypt flag-icon-squared"></i>
-									<p>{{$item->country}}</p><span>{{$item->count}}</span>
-								</div>
-								
-	
-								@endforeach
-
-
-
-							
-							</div>
-						</div>
-					</div>
-
-
-
-
-				</div>
-				<!-- row close -->
-
-				<!-- row opened -->
-				<div class="row row-sm row-deck">
-					<div class="col-md-12 col-lg-4 col-xl-4">
-						<div class="card card-dashboard-eight pb-2">
-							<h6 class="card-title">اعلي المناطق تواجدا للعقارات داخل المملكه العربيه السعوديه</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي المناطق  تواجدا للعقارات</span>
-							<div class="list-group">
-							
-
-
-								@foreach ($mostCountries as $item)
-							
-								<div class="list-group-item border-top-0">
-									<i class="flag-icon flag-icon-ae flag-icon-squared"></i>
-									<p>{{$item->country}}</p><span>{{$item->count}}</span>
-								</div>
-								
-	
-								@endforeach
-
-
-
-							
-							</div>
-						</div>
-					</div>
-
-
-
-					<div class="col-md-12 col-lg-8 col-xl-8">
-						<div class="card card-table-two">
-							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">اكثر العقارات عليها طلب</h4>
-								<i class="mdi mdi-dots-horizontal text-gray"></i>
-							</div>
-							<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات طالبا في التطبيق و الموقع.</span>
-							<div class="table-responsive country-table">
-								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
-									<thead>
-										<tr>
-											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">عنوان العقار</th>  
-											<th class="wd-lg-10p tx-right">بلد العقار</th>
-											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
-											<th class="wd-lg-10p tx-right">عدد الطلبات للعقار</th>
-											<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
-											<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
-									
-										</tr>
-									</thead>
-									<tbody>
-
-										@foreach ($highestQueriedProperty as $item)
-										<tr>
-											<td>{{$item->id}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
-											<td class="tx-right tx-medium tx-success">+{{$item->inquiry_count}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
-										</tr>
 										@endforeach
-
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-md-12 col-lg-8 col-xl-8">
-						<div class="card card-table-two">
-							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">اكثر العقارات المبلغ عنها</h4>
-								<i class="mdi mdi-dots-horizontal text-gray"></i>
-							</div>
-							<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات المبلغ عنها.</span>
-							<div class="table-responsive country-table">
-								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
-									<thead>
-										<tr>
-											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">عنوان العقار</th>
-											<th class="wd-lg-10p tx-right">بلد العقار</th>
-											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
-											<th class="wd-lg-10p tx-right">عدد الابلاغات للعقار</th>
-											<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
-											<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
-									
-										</tr>
-									</thead>
-									<tbody>
-
-										@foreach ($highestReportedProperty as $item)
-										<tr>
-											<td>{{$item->id}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
-											<td class="tx-right tx-medium tx-danger">+{{$item->report_count}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
-										</tr>
-										@endforeach
-
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-
-				
-					
-
-
-					<div class="col-md-12 col-lg-8 col-xl-8">
-						<div class="card card-table-two">
-							<div class="d-flex justify-content-between">
-								<h4 class="card-title mb-1">اكثر العقارات مشاهدات</h4>
-								<i class="mdi mdi-dots-horizontal text-gray"></i>
-							</div>
-							<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات مشاهده وزيارة من قبل المستخدمين.</span>
-							<div class="table-responsive country-table">
-								<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
-									<thead>
-										<tr>
-											<th class="wd-lg-5p">معرف العقار</th>
-											<th class="wd-lg-15p tx-right">عنوان العقار</th>
-											<th class="wd-lg-10p tx-right">بلد العقار</th>
-											<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
 										
-											<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
-											<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
-									
-										</tr>
-									</thead>
-									<tbody>
-
-										@foreach ($mostViewedProperties as $item)
-										<tr>
-											<td>{{$item->id}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
-									
-											<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
-											<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
-										</tr>
-										@endforeach
-
-
-									</tbody>
-								</table>
+										
+										
+								
+	
+	
+	
+									</div>
+								</div>
 							</div>
 						</div>
+	
+	
+	
+	
+	
+	
+						<div class="col-xl-3 col-md-12 col-lg-6 mb-3">
+							<div class="card h-100">
+								<div class="card-header pb-1">
+									<h3 class="card-title mb-2">النشطات في التطبيق والموقع</h3>
+							
+								</div>
+								<div class="product-timeline card-body pt-2 mt-1">
+									<ul class="timeline-1 mb-0">
+										<li class="mt-0"> <i class="ti-pie-chart bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات </span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totalProperties}}  مجموع العقارات </p>
+										</li>
+										<li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد العقارات الغير نشطه</span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totaldontProperties}} العقارات الغير نشطه</p>
+										</li>
+										<li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الاستعلامات</span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totalQueries}}  جميع الاستعلامات</p>
+										</li>
+										<li class="mt-0"> <i class="ti-wallet bg-warning-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الابلاغات</span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totalReports}}  جميع الابلاغات</p>
+										</li>
+										<li class="mt-0"> <i class="si si-eye bg-purple-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد المستخدمين</span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totalUsers}} عدد المستخدمين</p>
+										</li>
+										{{-- <li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">عدد الدول </span> <a href="#" class="float-left tx-11 text-muted"></a>
+											<p class="mb-0 text-muted tx-12">{{$totalCountries}} عدد الدول</p>
+										</li> --}}
+									</ul>
+								</div>
+							</div>
+						</div>
+	
+	
+						<div class="col-md-12 col-lg-4 col-xl-3 mb-3">
+							<div class="card card-dashboard-eight pb-2 h-100">
+								<h6 class="card-title">احصائيه لاكثر مستخدمين الموقع</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي الدول المتواجد به مستخدمين للتطبيق والموقع </span>
+								<div class="list-group">
+								
+	
+	
+									@foreach ($mostuserCountries as $item)
+								
+									<div class="list-group-item border-top-0">
+										<i class="flag-icon flag-icon-Egypt flag-icon-squared"></i>
+										<p>{{$item->country}}</p><span>{{$item->count}}</span>
+									</div>
+									
+		
+									@endforeach
+	
+	
+	
+								
+								</div>
+							</div>
+						</div>
+	
+						<div class="col-md-12 col-lg-4 col-xl-3 h-100 mb-3">
+							<div class="card card-dashboard-eight pb-2 h-100">
+								<h6 class="card-title">اعلي المناطق تواجدا للعقارات داخل المملكه العربيه السعوديه</h6><span class="d-block mg-b-10 text-muted tx-12">احصائيه لاعلي المناطق  تواجدا للعقارات</span>
+								<div class="list-group">
+								
+	
+	
+									@foreach ($mostCountries as $item)
+								
+									<div class="list-group-item border-top-0">
+										<i class="flag-icon flag-icon-ae flag-icon-squared"></i>
+										<p>{{$item->country}}</p><span>{{$item->count}}</span>
+									</div>
+									
+		
+									@endforeach
+	
+	
+	
+								
+								</div>
+							</div>
+						</div>
+	
+	
 					</div>
+					<!-- row close -->
+	
+					<!-- row opened -->
+					<div class="row row-sm row-deck">
 
-
-
-
-
-
+	
+	
+	
+						<div class="col-md-12 col-lg-8 col-xl-6 mb-3">
+							<div class="card card-table-two h-100 mb-3">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title mb-1">اكثر العقارات عليها طلب</h4>
+									<i class="mdi mdi-dots-horizontal text-gray"></i>
+								</div>
+								<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات طالبا في التطبيق و الموقع.</span>
+								<div class="table-responsive country-table">
+									<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
+										<thead>
+											<tr>
+												<th class="wd-lg-5p">معرف العقار</th>
+												<th class="wd-lg-15p tx-right">عنوان العقار</th>  
+												<th class="wd-lg-10p tx-right">بلد العقار</th>
+												<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
+												<th class="wd-lg-10p tx-right">عدد الطلبات للعقار</th>
+												<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
+												<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
+										
+											</tr>
+										</thead>
+										<tbody>
+	
+											@foreach ($highestQueriedProperty as $item)
+											<tr>
+												<td>{{$item->id}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
+												<td class="tx-right tx-medium tx-success">+{{$item->inquiry_count}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
+											</tr>
+											@endforeach
+	
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+	
+	
+						<div class="col-md-12 col-lg-6 col-xl-6 mb-3">
+							<div class="card card-table-two h-100">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title mb-1">اكثر العقارات المبلغ عنها</h4>
+									<i class="mdi mdi-dots-horizontal text-gray"></i>
+								</div>
+								<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات المبلغ عنها.</span>
+								<div class="table-responsive country-table">
+									<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
+										<thead>
+											<tr>
+												<th class="wd-lg-5p">معرف العقار</th>
+												<th class="wd-lg-15p tx-right">عنوان العقار</th>
+												<th class="wd-lg-10p tx-right">بلد العقار</th>
+												<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
+												<th class="wd-lg-10p tx-right">عدد الابلاغات للعقار</th>
+												<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
+												<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
+										
+											</tr>
+										</thead>
+										<tbody>
+	
+											@foreach ($highestReportedProperty as $item)
+											<tr>
+												<td>{{$item->id}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
+												<td class="tx-right tx-medium tx-danger">+{{$item->report_count}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
+											</tr>
+											@endforeach
+	
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+	
+					
+						
+	
+	
+						<div class="col-md-12 col-lg-6 col-xl-12 mb-3">
+							<div class="card card-table-two">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title mb-1">اكثر العقارات مشاهدات</h4>
+									<i class="mdi mdi-dots-horizontal text-gray"></i>
+								</div>
+								<span class="tx-12 tx-muted mb-3 ">هذه بيانات اكثر العقارات مشاهده وزيارة من قبل المستخدمين.</span>
+								<div class="table-responsive country-table">
+									<table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
+										<thead>
+											<tr>
+												<th class="wd-lg-5p">معرف العقار</th>
+												<th class="wd-lg-15p tx-right">عنوان العقار</th>
+												<th class="wd-lg-10p tx-right">بلد العقار</th>
+												<th class="wd-lg-10p tx-right">المعرف الخاص بصاحب العقار</th>
+											
+												<th class="wd-lg-10p tx-right">عدد مشاهدات العقار</th>
+												<th class="wd-lg-10p tx-right">تاريخ نشر العقار</th>
+										
+											</tr>
+										</thead>
+										<tbody>
+	
+											@foreach ($mostViewedProperties as $item)
+											<tr>
+												<td>{{$item->id}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->name}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->country}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->user_id}}</td>
+										
+												<td class="tx-right tx-medium tx-inverse">{{$item->views}}</td>
+												<td class="tx-right tx-medium tx-inverse">{{$item->created_at}}</td>
+											</tr>
+											@endforeach
+	
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+	
+	
+	
+	
+	
+	
+					</div>
 				</div>
 				<!-- /row -->
 			</div>
