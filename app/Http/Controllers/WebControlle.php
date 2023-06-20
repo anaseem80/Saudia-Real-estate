@@ -27,7 +27,7 @@ class WebControlle extends Controller
             $propertiesRec = Property::where('recommended',1)->get();
             $blogs = Blog::limit(2)->get();
             $catogerys= Catogery::all();
-            return view('realest.home',
+            return view('dashboard.home',
              [
                 'mostCountries' => $mostCountries,
                 'propertiesviews' => $propertiesviews, 
@@ -41,7 +41,7 @@ class WebControlle extends Controller
     {
         $propertiesviews = Property::orderBy('views', 'desc')->get();
         $catogerys= Catogery::all();
-        return view('realest.more_view',
+        return view('dashboard.more_view',
         [
      
            'property' => $propertiesviews,  'catogerys'=>  $catogerys
@@ -53,7 +53,7 @@ public function newProperty()
 {
     $newProperties = Property::orderBy('created_at', 'desc')->where('status',1)->get();
     $catogerys= Catogery::all();
-    return view('realest.more_view',
+    return view('dashboard.more_view',
     [
  
        'property' => $newProperties,     'catogerys'=>  $catogerys
@@ -68,7 +68,7 @@ public function newProperty()
             return response()->json(['error' => 'Property not found'], 404);
         }
         $catogerys= Catogery::all();
-        return view('realest.detalis_view',['property' => $property,   'catogerys'=>  $catogerys   ,'propertiesviews' => $propertiesviews, ]);
+        return view('dashboard.detalis_view',['property' => $property,   'catogerys'=>  $catogerys   ,'propertiesviews' => $propertiesviews, ]);
 
 
 
@@ -80,7 +80,7 @@ public function newProperty()
 
         
         return view(
-        'realest.more_view',
+        'dashboard.more_view',
         [
         'property'=>$property,
         'catogerys'=>  $catogerys
@@ -95,7 +95,7 @@ public function newProperty()
 
         $catogerys= Catogery::all();
         
-        return view('realest.more_view',['property'=>$property,
+        return view('dashboard.more_view',['property'=>$property,
         'catogerys'=>  $catogerys]);
 
 
@@ -107,7 +107,7 @@ public function newProperty()
 
         $catogerys= Catogery::all();
         
-        return view('realest.more_view',['property'=>$property,
+        return view('dashboard.more_view',['property'=>$property,
         'catogerys'=>  $catogerys]);
 
 
@@ -120,7 +120,7 @@ public function newProperty()
         $setting = Setting::first();
 
         
-        return view('realest.about_view', ['setting' => $setting]);
+        return view('dashboard.about_view', ['setting' => $setting]);
 
 
 
@@ -130,7 +130,7 @@ public function newProperty()
         $catogerys= Catogery::all();
 
         
-        return view('realest.terms',
+        return view('dashboard.terms',
         ['catogerys'=>  $catogerys]);
 
 

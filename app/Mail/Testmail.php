@@ -43,7 +43,7 @@ class Testmail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'realest.mail',
+            view: 'dashboard.mail',
         );
     }
 

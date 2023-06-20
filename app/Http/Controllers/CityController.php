@@ -14,7 +14,7 @@ class CityController extends Controller
     public function index()
     {   $country=  Country::all();
         $city=  City::all();
-        return view('realest.city_view',['city'=>  $city,'country'=>  $country]);
+        return view('dashboard.city_view',['city'=>  $city,'country'=>  $country]);
     }
 
     /**

@@ -40,21 +40,6 @@ Route::get('/send',function () {
 //      return view('auth\login');
 //  })->name('login');
 
-// Route::get('/dashboard', function () {
-//     return view('realest.dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/about', function () {
-    $catogerys = Catogery::all();
- 
-    return view('realest.about',['catogerys' => $catogerys]);
-})->name('about');
-
-Route::get('/conactUs', function () {
-    $catogerys = Catogery::all();
- 
-    return view('realest.conactUs',['catogerys' => $catogerys]);
-})->name('conactUs');
 
 Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
 Route::get('/index', function () {return view('front_end.home');})->name('home');
@@ -102,7 +87,8 @@ Route::get('/filterweb',[PropertyController::class,'filterweb'] )->name('filterw
 
 
 
-   
+Route::get('/posts/{postId}/comments', [PropertyController::class, 'getCommentsForPost'])->name('comments.forPost');
+
 
 
 
@@ -113,6 +99,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+        Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 });
  Route::middleware(['auth','admin'])->group(function () {
 

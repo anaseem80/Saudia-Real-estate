@@ -1,5 +1,6 @@
 @extends('layouts.master_web')
 @section('css')
+{{-- realest --}}
 <style>
     .property-image {
       width: 370px;

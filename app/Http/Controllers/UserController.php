@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('realest.user_view', ['userdata' => $user]);
+        return view('dashboard.user_view', ['userdata' => $user]);
     }
 
     /**

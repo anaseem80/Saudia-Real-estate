@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');//real_estate_number يكون تلقائي 
             $table->string('name');//عنوان الاعلان
-            $table->string('real_estate_advertisement_number');// رقم الاعلان يدخله يدوي
+            $table->string('real_estate_advertisement_number',255)->unique();// رقم الاعلان يدخله يدوي
             // $table->string('picture');
             $table->string('country'); 
             $table->string('city');

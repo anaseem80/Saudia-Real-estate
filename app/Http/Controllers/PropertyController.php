@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catogery;
+use App\Models\Comment;
+use App\Models\Country;
 use App\Models\Enquiry;
 use App\Models\Facility;
 use App\Models\Image;
@@ -71,27 +73,8 @@ class PropertyController extends Controller
             ->orderBy('report_count', 'desc')->limit(5)
             ->get();
 
-      
 
-
-            // "id": 15,
-            // "name": "شاليه وليد سليمان",
-            // "picture": "public/property/i.png",
-            // "country": "الشارقه",
-            // "status": 1,
-            // "views": 500,
-            // "recommended": 0,
-            // "catogerie_id": 2,
-            // "user_id": 1,
-            // "created_at": "2023-02-09 08:07:42",
-            // "updated_at": "2023-02-10 18:07:42"
-
-
-
-
-
-
-         return response()->view('realest.dashboard',[
+         return response()->view('dashboard.dashboard',[
 
             'totalProperties' => $totalProperties,
             'totaldontProperties' => $totaldontProperties,
@@ -123,18 +106,18 @@ class PropertyController extends Controller
     {
         $catogery = Catogery::all();
         $property = Property::all()->where('status',1);
-        return view('realest.property_view', ['propertydata' => $property,'catogery'=>$catogery]);
+        return view('dashboard.property_view', ['propertydata' => $property,'catogery'=>$catogery]);
     }    public function test()
     {
        
-        return view('realest.test');
+        return view('dashboard.test');
     }
 
     public function ads()
     {
 
         $property = Property::all()->where('status',0);
-        return view('realest.propertyads_view', ['propertydata' => $property]);
+        return view('dashboard.propertyads_view', ['propertydata' => $property]);
     }
 
 
@@ -143,7 +126,7 @@ class PropertyController extends Controller
     public function indexinsertweb()
     {
         $dataCatogery = Catogery::all();
-        return view('realest.property_insert_web',['catogerys' => $dataCatogery]);
+        return view('dashboard.property_insert_web',['catogerys' => $dataCatogery]);
     }
 
 
@@ -154,7 +137,8 @@ class PropertyController extends Controller
     public function indexinsert()
     {
         $dataCatogery = Catogery::all();
-        return view('realest.property_insert_view',['catogery' => $dataCatogery]);
+        $country=Country::all();
+        return view('dashboard.property_insert_view',['catogery' => $dataCatogery,'countrys' => $country]);
     }
     /**
      * Show the form for creating a new resource.
@@ -178,7 +162,7 @@ class PropertyController extends Controller
         
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'real_estate_advertisement_number' => 'required|string|max:255', 
+            'real_estate_advertisement_number' => 'required|string|unique:properties|max:255', 
             'negotiate' => 'required|string',
             'country' => 'required|string|max:255',
             'city' => 'required|string|max:255',
@@ -201,19 +185,21 @@ class PropertyController extends Controller
             'name.required' =>'يرجي ادخال عنوان العقار',
             'image.required' =>'يرجي ادخال الصوره',
             'images.required' =>'يرجي ادخال الصوره',
-            'country' => 'يرجي ادخال الدوله',         
-            'city' => 'يرجي ادخال المدينه',
-            'real_estate_advertisement_number' => 'يرجي ادخال رقم اعلان العقار',
-            'catogerie_id' => 'يرجي ادخال نوع العقار',
-            'price_meter' => '  يرجي ادخال السعر لكل متر' ,  
-            'price_all' => ' يرجي ادخال السعر الاجمالي' ,
-            'description' => 'يرجي ادخال الوصف',
-            'space' => 'يرجي ادحال المساحه',
-            'numbeer_room' => 'يرجي ادخال عدد الغرف',
-            'property_direction' => 'يرجي ادحال الاتجاه',
-            'numbeer_toilet' => 'يرجي ادخال عدد الحمامات',    
+            'country.required' => 'يرجي ادخال الدوله',         
+            'city.required' => 'يرجي ادخال المدينه',
+            'real_estate_advertisement_number.required' => 'يرجي ادخال رقم اعلان العقار',
+            'real_estate_advertisement_number.unique' => 'رقم الاعلان موجود مسبقا',
+
+            'catogerie_id.required' => 'يرجي ادخال نوع العقار',
+            'price_meter.required' => '  يرجي ادخال السعر لكل متر' ,  
+            'price_all.required' => ' يرجي ادخال السعر الاجمالي' ,
+            'description.required' => 'يرجي ادخال الوصف',
+            'space.required' => 'يرجي ادحال المساحه',
+            'numbeer_room.required' => 'يرجي ادخال عدد الغرف',
+            'property_direction.required' => 'يرجي ادحال الاتجاه',
+            'numbeer_toilet.required' => 'يرجي ادخال عدد الحمامات',    
             // 'address' =>'يرجي ادخال العنوان',
-            'Rental_term' =>'يرجي ادخال المده',
+            'Rental_term.required' =>'يرجي ادخال المده',
           // 'images.required' =>'يرجي ادخال الصوره',
            'space.numeric' =>'يرجي ادخال المساحه عدد وليس اي شئ اخر',
            'price_meter.numeric' =>'يرجي ادخال السعر عدد وليس اي شئ اخر',
@@ -297,10 +283,17 @@ class PropertyController extends Controller
 
         session()->flash('Add', 'تم اضافة العقار بنجاح ');
         // $dataCatogery = Catogery::all();
-        // return redirect('realest.property_insert_view',['catogery' => $dataCatogery]);
+        // return redirect('dashboard.property_insert_view',['catogery' => $dataCatogery]);
         return back();
     }
-
+    public function getCommentsForPost($postId)
+    {
+        $comments = Comment::where('post_id', $postId)->get();
+    
+        return response()->json([
+            'comments' => $comments
+        ]);
+    }
     /**
      * Display the specified resource.
      *
@@ -316,7 +309,7 @@ class PropertyController extends Controller
             return response()->json(['error' => 'Property not found'], 404);
         }
 
-       return view('realest.property_insert_detalis', ['property' => $property]);
+       return view('dashboard.property_insert_detalis', ['property' => $property]);
     }
 
     /**
@@ -398,7 +391,7 @@ class PropertyController extends Controller
         }
             $properties = $query->where('status',1)->paginate(10);
             $catogery = Catogery::all();
-            return view('realest.more_view',['property' => $properties,'catogerys' => $catogery]);  
+            return view('dashboard.more_view',['property' => $properties,'catogerys' => $catogery]);  
         }
     
 

@@ -38,6 +38,7 @@ return array(
     'App\\Http\\Controllers\\PropertyDetalisController' => $baseDir . '/app/Http/Controllers/PropertyDetalisController.php',
     'App\\Http\\Controllers\\ReportController' => $baseDir . '/app/Http/Controllers/ReportController.php',
     'App\\Http\\Controllers\\SettingController' => $baseDir . '/app/Http/Controllers/SettingController.php',
+    'App\\Http\\Controllers\\SettingWebController' => $baseDir . '/app/Http/Controllers/SettingWebController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\WebControlle' => $baseDir . '/app/Http/Controllers/WebControlle.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

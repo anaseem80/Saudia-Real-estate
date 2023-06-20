@@ -597,6 +597,7 @@ class ComposerStaticInitbb44207e793be1067a163bcd6e5ab612
         'App\\Http\\Controllers\\PropertyDetalisController' => __DIR__ . '/../..' . '/app/Http/Controllers/PropertyDetalisController.php',
         'App\\Http\\Controllers\\ReportController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportController.php',
         'App\\Http\\Controllers\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingController.php',
+        'App\\Http\\Controllers\\SettingWebController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingWebController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\WebControlle' => __DIR__ . '/../..' . '/app/Http/Controllers/WebControlle.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

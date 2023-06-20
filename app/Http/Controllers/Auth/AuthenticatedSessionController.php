@@ -19,7 +19,10 @@ class AuthenticatedSessionController extends Controller
     {
         return view('auth.login');
     }
-
+    public function loginDashboard(): View
+    {
+        return view('auth.login_dashboard');
+    }
     /**
      * Handle an incoming authentication request.
      */

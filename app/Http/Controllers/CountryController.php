@@ -16,7 +16,7 @@ class CountryController extends Controller
     public function index()
     {
         $country =  Country::all();
-        return view('realest.country_view', ['countrys' =>  $country]);
+        return view('dashboard.country_view', ['countrys' =>  $country]);
     }
 
     /**

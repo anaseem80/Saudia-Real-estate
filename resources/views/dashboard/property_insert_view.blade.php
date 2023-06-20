@@ -136,44 +136,80 @@
 
 
                     <div class="card-body">
-
-
-
                         <div class="row row-sm">
                             <div class="col-lg">
+                                <p class="mg-b-10">عنوان العقار</p>
                                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                     placeholder="عنوان العقار" type="text" name="name" value="{{ old('name') }}">
+                            </div>
 
-                            </div>
+
                             <div class="col-lg">
-                                <input class="form-control" placeholder="اكتب اسم الدوله" type="text" name="country"
-                                    value="{{ old('country') }}">
+                                <p class="mg-b-10">الدوله</p>
+                                <select name="country" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+
+                                    <option value="السعوديه">اختار الدوله</option>
+                                    @foreach ($countrys as $data)
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
+
+
                             <div class="col-lg">
+                                <p class="mg-b-10">سعر العقار بنسبه للمده</p>
                                 <input class="form-control" placeholder="سعر العقار بنسبه للمده" type="text"
                                     name="price_all" value="{{ old('price_all') }}">
                             </div>
+
+
                             <div class="col-lg">
+                                <p class="mg-b-10">سعر المتر</p>
                                 <input class="form-control" placeholder="سعر المتر" type="text" name="price_meter"
                                     value="{{ old('price_meter') }}">
                             </div>
+
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         <br><br>
 
                         <div class="row row-sm">
-                            <div class="col-lg">
-                                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                                    placeholder="اسم المدينه" type="text" name="city" value="{{ old('city') }}">
 
+                            <div class="col-lg">
+                                <p class="mg-b-10">المدينه</p>
+                                <select name="city" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+
+                                    <option value="الرياض">اختار المدينه</option>
+                                    @foreach ($countrys as $data)
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
 
+                          
 
-                            {{-- <div class="col-lg">
-                                <input class="form-control" placeholder="تجربه" type="text" name="test">
-                            </div> --}}
 
-                            <div class="col-lg">
+                            <div class="col-lg">   
+                                <p class="mg-b-10">رقم الاعلان (اجباري)</p>
                                 <input class="form-control" placeholder="رقم الاعلان الخاص بهيئة العقار" type="text"
                                     name="real_estate_advertisement_number"
                                     value="{{ old('real_estate_advertisement_number') }}">
@@ -182,22 +218,29 @@
 
 
                             <div class="col-lg">
+                                <p class="mg-b-10">مساحة العقار</p>
                                 <input class="form-control" placeholder="مساحة العقار" type="text" name="space"
                                     value="{{ old('space') }}">
-                                    
+
                             </div>
 
-
-                               
-                            <div class="col-lg d-flex align-items-center justify-content-center">
+                            <br> <br>
+                            <div class="col-lg d-flex align-items-center justify-content-center"> 
+                                <p></p><br><br>
                                 <label class="ckbox">
+                                  
                                     <input checked type="checkbox" name="negotiate">
                                     <span>قابل للتفاوض</span>
                                 </label>
                             </div>
-                            
-                               
+
+
                         </div>
+
+
+
+
+
 
 
                         <div class="row row-sm mg-t-20">
@@ -642,5 +685,5 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-         async defer"></script>
+                 async defer"></script>
 @endsection

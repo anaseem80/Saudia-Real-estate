@@ -17,7 +17,7 @@ class BlogController extends Controller
     public function index()
     {    $blogs = Blog::all();
         $catogerys= Catogery::all();
-        return view('realest.blog',['blogs'=>$blogs, 'catogerys'=>  $catogerys,]);
+        return view('dashboard.blog',['blogs'=>$blogs, 'catogerys'=>  $catogerys,]);
     }
 
     /**
@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {    $blogs = Blog::with('user')->get();
-        return response()->view('realest.blogdash',['blogs'=>$blogs]);
+        return response()->view('dashboard.blogdash',['blogs'=>$blogs]);
     }
 
     /**
@@ -71,7 +71,7 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $catogerys= Catogery::all();
-        return view('realest.singleblog', ['blogs'=>$blog, 'catogerys'=>  $catogerys]);
+        return view('dashboard.singleblog', ['blogs'=>$blog, 'catogerys'=>  $catogerys]);
     }
 
     /**

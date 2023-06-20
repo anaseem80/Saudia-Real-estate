@@ -17,7 +17,7 @@ class CatogeryController extends Controller
     public function index()
     {      
         $catogerys = Catogery::all();
-        return view("realest.catogery_view",['catogerys' => $catogerys]);
+        return view("dashboard.catogery_view",['catogerys' => $catogerys]);
     }
 
     /**

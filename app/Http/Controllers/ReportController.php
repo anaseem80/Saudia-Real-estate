@@ -15,7 +15,7 @@ class ReportController extends Controller
     public function index()
     {
         $report = Report::all();
-        return view('realest.report_view', ['Reportdata' => $report]);
+        return view('dashboard.report_view', ['Reportdata' => $report]);
     }
 
     /**

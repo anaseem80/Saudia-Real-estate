@@ -15,7 +15,7 @@ class EnquiryController extends Controller
     public function index()
     {
         $enquiry = Enquiry::all();
-        return view('realest.enquiries_view', ['enquirydata' => $enquiry]);
+        return view('dashboard.enquiries_view', ['enquirydata' => $enquiry]);
     }
 
     /**

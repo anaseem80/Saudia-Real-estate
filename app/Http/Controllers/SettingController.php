@@ -15,7 +15,7 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        return view('realest.setting', ['setting' => $setting]);
+        return view('dashboard.setting', ['setting' => $setting]);
     }//
 
     /**

@@ -14,7 +14,7 @@ class SettingWebController extends Controller
      */
     public function index()
     {
-        return view('realest.setting_web');
+        return view('dashboard.setting_web');
     }
 
     /**

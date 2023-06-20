@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ResetPasswordController;
 
 use App\Http\Controllers\Api\ForgotPasswordApiController;
 use App\Http\Controllers\Api\ProfileMobileController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SettingWebController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -67,4 +68,5 @@ Route::post('addproperty', 'store')->name('addproperty');
 Route::get('mostview', 'getMostViewedProperties')->name('mostview');
 })->middleware(['auth:sanctum']);
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
 
