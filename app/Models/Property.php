@@ -39,7 +39,10 @@ class Property extends Model
     {
         return $this->hasMany(Comment::class);
     }
-    
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');

@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
+Route::get('/get-cities/{country}', [CityController::class, 'getCitiesByCountry']);
+
 Route::get('/send',function () {
     Mail::to('d4a3bd7aa2@boxmail.lol')->send(new Testmail);
 
@@ -167,6 +169,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/user.edit', 'edit')->name('user.edit');
         Route::post('/user.update', 'update')->name('user.update');
         Route::post('/user.destroy', 'destroy')->name('user.destroy');
+        Route::post('/userCreate', 'create')->name('userCreate');
     });
 
 

@@ -236,7 +236,7 @@ class PropertyController extends Controller
 
         $propertyDetalis->description = $request->description; 
         $propertyDetalis->space = $request->space; 
-
+        $propertyDetalis->iscomment = $request->iscomment; 
       //  $propertyDetalis->numbeer_toilet = $request->name; 
         $propertyDetalis->numbeer_room = $request->numbeer_room; 
         $propertyDetalis->property_direction = $request->property_direction; 

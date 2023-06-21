@@ -50,6 +50,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Address::class);
     }
+    public function phone()
+    {
+        return $this->hasMany(Phone::class,'user_id');
+    }
     public function property()
     {
         return $this->hasMany(Property::class,'user_id');
@@ -61,6 +65,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
     }
     // public function sendPasswordResetNotification($userr)
     // {

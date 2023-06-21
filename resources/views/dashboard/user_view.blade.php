@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('css')
+@section('css') <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Internal Data table css -->
     <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
@@ -121,24 +121,29 @@
                                         <td>{{ $user->user_type }}</td>
                                         <td>{{ $user->country }}</td>
                                         <td>
-
-                                            <button class="btn btn-outline-success btn-sm" 
-                                                data-name="{{ $user->name }}"
-                                                data-pro_id="{{ $user->id }}"
-                                                data-first_phone={{ $user->first_phone }}
-                                                data-second_phone={{ $user->second_phone }}
-                                                data-city="{{ $user->city }}"
-                                                data-country="{{ $user->country }}"
-                                                data-toggle="modal" data-target="#edit_user">تعديل</button>
+                                            <div class="d-flex">
 
 
 
-                                            <button class="btn btn-outline-danger btn-sm "
-                                                data-pro_id="{{ $user->id }}" data-name="{{ $user->name }}"
-                                                data-toggle="modal" data-target="#modaldemo9">حذف</button>
+                                                <div class="main-toggle main-toggle-success {{ $user->status == 'active' ? 'on' : '' }} btn-sm ml-2" data-user-id="{{ $user->id }}">
+                                                    <span></span>
+                                                </div>
 
 
+
+                                                <button class="btn btn-outline-success btn-sm ml-2"
+                                                    data-name="{{ $user->name }}" data-pro_id="{{ $user->id }}"
+                                                    data-first_phone="{{ $user->first_phone }}"
+                                                    data-second_phone="{{ $user->second_phone }}"
+                                                    data-city="{{ $user->city }}" data-country="{{ $user->country }}"
+                                                    data-toggle="modal" data-target="#edit_user">تعديل</button>
+
+                                                <button class="btn btn-outline-danger btn-sm "
+                                                    data-pro_id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                    data-toggle="modal" data-target="#modaldemo9">حذف</button>
+                                            </div>
                                         </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -411,7 +416,42 @@
     <script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <!-- Internal Modal js-->
     <script src="{{ URL::asset('assets/js/modal.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+    $('.main-toggle').on('click', function() {
+        $(this).toggleClass('on');
+        var isToggleOn = $(this).hasClass('on');
+        var url = '{{ route('userCreate') }}';
+        var userId = $(this).data('user-id');
+        // Retrieve the CSRF token value from the meta tag
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrfToken
+            }
+        });
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                isToggleOn: isToggleOn,
+                userId: userId
+            },
+            success: function(response) {
+                console.log(response);
+                // Handle the success response
+            },
+            error: function(error) {
+                console.log(error);
+                // Handle the error response
+            }
+        });
+    });
+});
+
+    </script>
 
     <script>
         $('#edit_user').on('show.bs.modal', function(event) {

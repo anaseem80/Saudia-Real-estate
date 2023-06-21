@@ -143,17 +143,15 @@
                                     placeholder="عنوان العقار" type="text" name="name" value="{{ old('name') }}">
                             </div>
 
-
                             <div class="col-lg">
                                 <p class="mg-b-10">الدوله</p>
-                                <select name="country" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-
-                                    <option value="السعوديه">اختار الدوله</option>
-                                    @foreach ($countrys as $data)
-                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                <select id="country" name="country" class="form-control SlectBox"
+                                onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                
+                                    <option value="">اختار الدوله</option>
+                                    @foreach ($countrys as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
-
                                 </select>
                             </div>
 
@@ -194,21 +192,16 @@
 
                             <div class="col-lg">
                                 <p class="mg-b-10">المدينه</p>
-                                <select name="city" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-
-                                    <option value="الرياض">اختار المدينه</option>
-                                    @foreach ($countrys as $data)
-                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
-                                    @endforeach
-
+                                <select id="city" name="city" class="form-control SlectBox"
+                                onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                    <option value="">اختار المدينه</option>
                                 </select>
                             </div>
 
-                          
 
 
-                            <div class="col-lg">   
+
+                            <div class="col-lg">
                                 <p class="mg-b-10">رقم الاعلان (اجباري)</p>
                                 <input class="form-control" placeholder="رقم الاعلان الخاص بهيئة العقار" type="text"
                                     name="real_estate_advertisement_number"
@@ -225,10 +218,10 @@
                             </div>
 
                             <br> <br>
-                            <div class="col-lg d-flex align-items-center justify-content-center"> 
+                            <div class="col-lg d-flex align-items-center justify-content-center">
                                 <p></p><br><br>
                                 <label class="ckbox">
-                                  
+
                                     <input checked type="checkbox" name="negotiate">
                                     <span>قابل للتفاوض</span>
                                 </label>
@@ -247,6 +240,8 @@
                             <div class="col-lg">
                                 <textarea class="form-control" placeholder="اضافة وصف للعقار" rows="3" name="description"></textarea>
                             </div>
+
+
                             <div class="mb-4">
                                 <p class="mg-b-10">عدد الغرف</p>
                                 <select name="numbeer_room" class="form-control SlectBox"
@@ -259,6 +254,8 @@
 
                                 </select>
                             </div>
+
+
                             <div class="mb-4">
                                 <p class="mg-b-10">عدد الحمامات</p>
                                 <select name="numbeer_toilet" class="form-control SlectBox"
@@ -268,46 +265,63 @@
                                     @endfor
                                 </select>
                             </div>
+
+
                         </div>
                         <div class="card-body">
                             <div>
                                 <h6 class="card-title mb-1">اضافة بعض التفاصيل للعقار</h6>
                             </div>
-                            <div class="mb-4">
-                                <p class="mg-b-10">الاتجاه</p>
-                                <select name="property_direction" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <!--placeholder-->
-                                    <option value="شمالي">شمالي</option>
-                                    <option value="saab">غربي</option>
-                                    <option value="mercedes">شرقي</option>
-                                    <option value="audi">جنوبي</option>
-                                </select>
+                            <br>
+
+                            <div class="row row-sm">
+                                <div class="col-lg">
+                                    <p class="mg-b-10">الاتجاه</p>
+                                    <select name="property_direction" class="form-control SlectBox"
+                                        onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                        <!--placeholder-->
+                                        <option value="شمالي">شمالي</option>
+                                        <option value="saab">غربي</option>
+                                        <option value="mercedes">شرقي</option>
+                                        <option value="audi">جنوبي</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <p class="mg-b-10">مدة الايجار</p>
+                                    <select name="Rental_term" class="form-control SlectBox"
+                                        onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                        <!--placeholder-->
+                                        <option value="سنوي">سنوي</option>
+                                        <option value="شهري">شهري</option>
+                                        <option value="يومي">يومي</option>
+                                        <option value="تمليك">للبيع</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <p class="mg-b-10">نوع العقار</p>
+                                    <select name="catogerie_id" class="form-control SlectBox"
+                                        onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                        <!--placeholder-->
+                                        <option value="منزل">اختار نوع العقار</option>
+                                        @foreach ($catogery as $data)
+                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col-lg d-flex align-items-center justify-content-center">
+                                    <p></p><br><br>
+                                    <label class="ckbox">
+    
+                                        <input checked type="checkbox" name="iscomment">
+                                        <span>السماح باالتعليقات</span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="mb-4">
-                                <p class="mg-b-10">مدة الايجار</p>
-                                <select name="Rental_term" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <!--placeholder-->
-                                    <option value="سنوي">سنوي</option>
-                                    <option value="شهري">شهري</option>
-                                    <option value="يومي">يومي</option>
-                                    <option value="تمليك">للبيع</option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <p class="mg-b-10">نوع العقار</p>
-                                <select name="catogerie_id" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <!--placeholder-->
-                                    <option value="منزل">اختار نوع العقار</option>
-                                    @foreach ($catogery as $data)
-                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
-                                    @endforeach
+                            <br>
 
-                                </select>
-                            </div>
+
                             <div class="mb-4">
                                 <p class="mg-b-10">مميزات العقار</p>
                                 <select name="future[]" multiple="multiple" class="testselect2">
@@ -322,11 +336,7 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-                                <input type="file" multiple id="gallery-photo-add">
-                                <div class="gallery"></div> --}}
-                        {{-- ----------------------------------------------------------------------------------------------------------------------------------------------------- --}}
+                    
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="card">
@@ -398,6 +408,32 @@
     </form>
 @endsection
 @section('js')
+<script>
+    $(document).ready(function() {
+        $('#country').change(function() {
+            var countryId = $(this).val();
+            if (countryId) {
+                $.ajax({
+                    url: '/Saudia-Real-estate/public/get-cities/' + countryId, // Replace with your route URL
+                    type: 'GET',
+                    success: function(response) {
+
+                        $('#city').empty();
+                        $('#city').append('<option value="">اختار المدينه</option>');
+                        $.each(response, function(key, city){
+                            console.log('<option value="'+ city.id +'">'+ city.name +'</option>' )
+                            $('#city').append('<option value="'+ city.id +'">'+ city.name +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#city').empty();
+                $('#city').append('<option value="">اختار المدينه</option>');
+            }
+        });
+    });
+</script>
+
     <!--Internal  Datepicker js -->
     <script src="{{ URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
     <!--Internal  jquery.maskedinput js -->
@@ -685,5 +721,5 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-                 async defer"></script>
+                     async defer"></script>
 @endsection

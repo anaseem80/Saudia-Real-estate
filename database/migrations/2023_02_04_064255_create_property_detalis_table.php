@@ -29,6 +29,8 @@ return new class extends Migration
             $table->double('longitude')->nullable();
             $table->double('latitude')->nullable();
             $table->string('address')->nullable();
+            $table->boolean('iscomment')->default(false);// التفاوض
+
             // $table->string('seller_phone')->nullable();
             $table->unsignedBigInteger('property_id');
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');

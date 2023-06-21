@@ -24,9 +24,31 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request)
+    {  
+        $isToggleOnString = (string) $request->isToggleOn;
+        $status='';
+        $userId = $request->input('userId');
+        if ( $isToggleOnString == "true" ) {
+            $status ='active';    
+        
+        }else{
+            $status ='inactive';
+        }
+    
+    
+    
+        $user = User::find($userId);
+    
+        if ($user) {
+            // Update the status field
+            $user->status = $status;
+            $user->save();
+    
+            return response()->json(['success' => true, 'message' => 'User status  updated successfully']);
+        }
+    
+        return response()->json(['success' => false, 'message' => 'User not found']);
     }
 
     /**

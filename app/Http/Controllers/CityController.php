@@ -20,11 +20,11 @@ class CityController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function getCitiesByCountry($country)
     {
-        //
+        $cities = City::where('country_id', $country)->get();
+        return response()->json($cities);
     }
-
     /**
      * Store a newly created resource in storage.
      */
