@@ -8,6 +8,7 @@ use App\Http\Controllers\CatogeryController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyTypeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingWebController;
@@ -120,7 +121,13 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/property.destroy', 'destroy')->name('property.destroy');
         Route::get('/adsproperty', 'ads')->name('adsproperty');
     });
-    
+    Route::controller(PropertyTypeController::class)->group(function () {
+        // Route::get('/catogery', 'index')->name('catogery');
+         Route::get('/propertyTypeview', 'index')->name('propertyTypeview');
+         Route::post('/propertyTypeStore', 'store')->name('propertyType.store');
+         Route::post('/propertyTypeUpdate', 'update')->name('propertyType.update');
+         Route::post('/propertyTypeDestroy', 'destroy')->name('propertyType.destroy');
+     });
     Route::controller(CatogeryController::class)->group(function () {
        // Route::get('/catogery', 'index')->name('catogery');
         Route::get('/catogeryview', 'index')->name('catogeryview');

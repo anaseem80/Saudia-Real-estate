@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_id');
+
             $table->string('facility');
-     
+            $table->unsignedBigInteger('property_id');
          $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
         });
     }

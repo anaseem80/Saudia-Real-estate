@@ -81,8 +81,8 @@ class CityController extends Controller
     {
         $id = $request->id;
 
-        $request->validate([
-            'name' => 'required|unique:countries|max:255',
+        $request->validate([ 
+            'name' => 'required|unique:cities,title,'.$id.'|max:100',
           //  'image' => 'required',
         ],[
 

@@ -27,7 +27,7 @@ class WebControlle extends Controller
             $propertiesRec = Property::where('recommended',1)->get();
             $blogs = Blog::limit(2)->get();
             $catogerys= Catogery::all();
-            return view('dashboard.home',
+            return view('front_end.home',
              [
                 'mostCountries' => $mostCountries,
                 'propertiesviews' => $propertiesviews, 

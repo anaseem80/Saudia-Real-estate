@@ -77,7 +77,7 @@ class CountryController extends Controller
         $id = $request->id;
 
         $validatedData = $request->validate([
-            'name' => 'required|unique:countries|max:255',
+            'name' => 'required|unique:countries,title,'.$id.'|max:100',
             'code' => 'required|unique:countries|max:255',
 
         ], [

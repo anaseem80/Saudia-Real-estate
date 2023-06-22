@@ -10,6 +10,7 @@ use App\Models\Facility;
 use App\Models\Image;
 use App\Models\Property;
 use App\Models\PropertyDetalis;
+use App\Models\PropertyType;
 use App\Models\Report ;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Foundation\Auth\User;
@@ -105,6 +106,7 @@ class PropertyController extends Controller
     public function index()
     {
         $catogery = Catogery::all();
+   
         $property = Property::all()->where('status',1);
         return view('dashboard.property_view', ['propertydata' => $property,'catogery'=>$catogery]);
     }    public function test()
@@ -135,10 +137,10 @@ class PropertyController extends Controller
 
 
     public function indexinsert()
-    {
+    {     $propertyTypes = PropertyType::all();
         $dataCatogery = Catogery::all();
         $country=Country::all();
-        return view('dashboard.property_insert_view',['catogery' => $dataCatogery,'countrys' => $country]);
+        return view('dashboard.property_insert_view',['catogery' => $dataCatogery,'countrys' => $country,'propertyTypes'=>$propertyTypes]);
     }
     /**
      * Show the form for creating a new resource.
@@ -165,6 +167,7 @@ class PropertyController extends Controller
             'real_estate_advertisement_number' => 'required|string|unique:properties|max:255', 
             'negotiate' => 'required|string',
             'country' => 'required|string|max:255',
+            'property_type' => 'required|string|max:100',
             'city' => 'required|string|max:255',
             'catogerie_id' => 'required|integer',
             'price_all' => 'required|numeric',
@@ -183,7 +186,8 @@ class PropertyController extends Controller
 
         ],[
             'name.required' =>'يرجي ادخال عنوان العقار',
-            'image.required' =>'يرجي ادخال الصوره',
+            'image.required' =>'يرجي ادخال الصوره',         
+            'property_type.required' =>'يرجي ادخال نوع العقار',
             'images.required' =>'يرجي ادخال الصوره',
             'country.required' => 'يرجي ادخال الدوله',         
             'city.required' => 'يرجي ادخال المدينه',
@@ -233,7 +237,7 @@ class PropertyController extends Controller
         $propertyDetalis = new PropertyDetalis(); 
         $propertyDetalis->price_all = $request->price_all;   
         $propertyDetalis->price_meter = $request->price_meter; 
-
+        $propertyDetalis->property_type = $request->property_type; 
         $propertyDetalis->description = $request->description; 
         $propertyDetalis->space = $request->space; 
         $propertyDetalis->iscomment = $request->iscomment; 
