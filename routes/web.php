@@ -6,6 +6,7 @@ use App\Http\Controllersntroller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CatogeryController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyTypeController;
@@ -127,6 +128,13 @@ Route::middleware(['auth'])->group(function () {
          Route::post('/propertyTypeStore', 'store')->name('propertyType.store');
          Route::post('/propertyTypeUpdate', 'update')->name('propertyType.update');
          Route::post('/propertyTypeDestroy', 'destroy')->name('propertyType.destroy');
+     });
+     Route::controller(InboxController::class)->group(function () {
+        // Route::get('/catogery', 'index')->name('catogery');
+         Route::get('/inbox', 'index')->name('inbox');
+        //  Route::post('/propertyTypeStore', 'store')->name('propertyType.store');
+        //  Route::post('/propertyTypeUpdate', 'update')->name('propertyType.update');
+        //  Route::post('/propertyTypeDestroy', 'destroy')->name('propertyType.destroy');
      });
     Route::controller(CatogeryController::class)->group(function () {
        // Route::get('/catogery', 'index')->name('catogery');
