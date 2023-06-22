@@ -220,7 +220,7 @@
                 {{-- ظظظظ؟-------------------------------------------------------------------------------------------------------------------------------------------------------------------- --}}
                 <div class="mb-[45px] col-span-12 md:col-span-6">
                     <label class="mb-[20px] font-recoleta text-[18px] leading-none block text-primary"
-                        for="PropertyStatus1">نوع العقار</label>
+                        for="PropertyStatus1">فئة العقار</label>
 
 
                     <div class="relative">

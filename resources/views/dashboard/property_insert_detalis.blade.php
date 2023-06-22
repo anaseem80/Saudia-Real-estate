@@ -230,7 +230,7 @@
 
 
                         <div class="col-lg">
-                            <p class="mg-b-10">نوع العقار</p>
+                            <p class="mg-b-10">فئة العقار</p>
                             <input class="form-control" placeholder="اكتب اسم المدينه" type="text" name="country"
                                 value="{{ $property->catogery->name }}" readonly>
                         </div>

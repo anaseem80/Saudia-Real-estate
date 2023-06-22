@@ -165,7 +165,7 @@ button, input, optgroup, select, textarea{
 
                                         <div class="flex-1">
                                             <label for="property"
-                                                class="font-recoleta block capitalize text-white text-[18px] leading-none">نوع العقار</label>
+                                                class="font-recoleta block capitalize text-white text-[18px] leading-none">فئة العقار</label>
                                                 <select name="property" id="property"
                                                 class="nice-select appearance-none bg-transparent text-tiny font-light cursor-pointer">
                                                 @foreach ($catogerys as $item)

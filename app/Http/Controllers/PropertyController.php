@@ -190,7 +190,7 @@ class PropertyController extends Controller
             'real_estate_advertisement_number.required' => 'يرجي ادخال رقم اعلان العقار',
             'real_estate_advertisement_number.unique' => 'رقم الاعلان موجود مسبقا',
 
-            'catogerie_id.required' => 'يرجي ادخال نوع العقار',
+            'catogerie_id.required' => 'يرجي ادخال فئة العقار',
             'price_meter.required' => '  يرجي ادخال السعر لكل متر' ,  
             'price_all.required' => ' يرجي ادخال السعر الاجمالي' ,
             'description.required' => 'يرجي ادخال الوصف',

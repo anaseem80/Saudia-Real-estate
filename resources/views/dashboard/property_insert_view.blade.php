@@ -298,11 +298,11 @@
                                     </select>
                                 </div>
                                 <div class="col-lg">
-                                    <p class="mg-b-10">نوع العقار</p>
+                                    <p class="mg-b-10">فئة العقار</p>
                                     <select name="catogerie_id" class="form-control SlectBox"
                                         onclick="console.log($(this).val())" onchange="console.log('change is firing')">
                                         <!--placeholder-->
-                                        <option value="منزل">اختار نوع العقار</option>
+                                        <option value="منزل">اختار فئة العقار</option>
                                         @foreach ($catogery as $data)
                                             <option value="{{ $data->id }}">{{ $data->name }}</option>
                                         @endforeach

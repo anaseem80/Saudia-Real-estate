@@ -91,7 +91,7 @@
                                 <tr>
                                     <th class="border-bottom-0">#</th>
                                     <th class="border-bottom-0">عنوان العقار</th>
-                                    <th class="border-bottom-0">نوع العقار</th>
+                                    <th class="border-bottom-0">فئة العقار</th>
                                     <th class="border-bottom-0">المدينه</th>
                                     {{-- <th class="border-bottom-0">رقم الهاتف</th> --}}
 									<th class="border-bottom-0">السعر</th>

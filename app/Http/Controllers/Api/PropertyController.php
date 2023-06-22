@@ -228,7 +228,7 @@ class PropertyController extends Controller
             'image.required' =>'يرجي ادخال الصوره',
             'images.required' =>'يرجي ادخال الصوره',
             'country' => 'يرجي ادخال المدينه',
-            'catogerie_id' => 'يرجي ادخال نوع العقار',
+            'catogerie_id' => 'يرجي ادخال فئة العقار',
             'price' => 'يرجي ادخال السعر',
             'description' => 'يرجي ادخال الوصف',
             'space' => 'يرجي ادحال المساحه',

@@ -14,7 +14,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">الاقسام /</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">نوع العقار</span>
+							<h4 class="content-title mb-0 my-auto">الاقسام /</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">فئة العقار</span>
 						</div>
 					</div>
 			
@@ -66,7 +66,7 @@
 					<div class="col-xl-12">
 						<div class="card">
 							<div class="col-sm-6 col-md-4 col-xl-3">
-								<a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8">اضافة نوع عقار</a>
+								<a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8">اضافة فئة العقار</a>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -74,7 +74,7 @@
 										<thead>
 											<tr>
 												<th class="wd-15p border-bottom-0">رقم العقار</th>
-												<th class="wd-15p border-bottom-0">نوع العقار</th>
+												<th class="wd-15p border-bottom-0">فئة العقار</th>
 												<th class="wd-15p border-bottom-0">تم انشائه بواسطة</th>
 												<th class="wd-20p border-bottom-0">تاريخ الانشاء</th>
 												<th class="wd-20p border-bottom-0">العمليات</th>
@@ -136,12 +136,12 @@
 										{{ csrf_field() }}
 				
 										<div class="form-group">
-											<label for="exampleInputEmail1">نوع العقار</label>
+											<label for="exampleInputEmail1">فئة العقار</label>
 											<input type="text" class="form-control" id="name" name="name">
 										</div>
 				
 										<div class="form-group">
-											<label for="image">تحميل صوره لنوع العقار</label>
+											<label for="image">تحميل صوره لفئة العقار</label>
 											<div class="custom-file">
 												<input type="file" class="custom-file-input" id="image" name="image">
 												<label class="custom-file-label" for="image">اختار صوره</label>
@@ -175,7 +175,7 @@
 			{{ csrf_field() }}
 			<input type="hidden" name="id" id="id" value="">
 			<div class="form-group">
-				<label for="recipient-name" class="col-form-label">نوع العقار</label>
+				<label for="recipient-name" class="col-form-label">فئة العقار</label>
 				<input class="form-control" name="name" id="name" type="text">
 			</div>
 			<div class="form-group">

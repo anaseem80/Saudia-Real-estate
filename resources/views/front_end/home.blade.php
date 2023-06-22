@@ -74,7 +74,7 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label>نوع العقار</label>
+                                                            <label>فئة العقار</label>
                                                             <div class="select-box">
                                                                 <select class="wide">
                                                                    <option data-display="جميع الأنواع">All Type</option>
@@ -241,7 +241,7 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label>نوع العقار</label>
+                                                            <label>فئة العقار</label>
                                                             <div class="select-box">
                                                                 <select class="wide">
                                                                    <option data-display="All Type">All Type</option>
