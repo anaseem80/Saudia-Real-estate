@@ -1,6 +1,7 @@
 @extends('layouts.master')
-@section('css') <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Internal Data table css -->
+@section('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
@@ -14,6 +15,17 @@
     <link href="{{ URL::asset('assets/plugins/multislider/multislider.css') }}" rel="stylesheet">
     <!--- Select2 css -->
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('assets/plugins/sumoselect/sumoselect-rtl.css') }}">
+    <!--- Internal Select2 css-->
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+    <!---Internal Fileupload css-->
+    <link href="{{ URL::asset('assets/plugins/fileuploads/css/fileupload.css') }}" rel="stylesheet" type="text/css" />
+    <!---Internal Fancy uploader css-->
+    <link href="{{ URL::asset('assets/plugins/fancyuploder/fancy_fileupload.css') }}" rel="stylesheet" />
+    <!--Internal Sumoselect css-->
+    <link rel="stylesheet" href="{{ URL::asset('assets/plugins/sumoselect/sumoselect-rtl.css') }}">
+    <!--Internal  TelephoneInput css-->
+    <link rel="stylesheet" href="{{ URL::asset('assets/plugins/telephoneinput/telephoneinput-rtl.css') }}">
 @endsection
 @section('title')
     صفحة المستخدمين
@@ -125,7 +137,8 @@
 
 
 
-                                                <div class="main-toggle main-toggle-success {{ $user->status == 'active' ? 'on' : '' }} btn-sm ml-2" data-user-id="{{ $user->id }}">
+                                                <div class="main-toggle main-toggle-success {{ $user->status == 'active' ? 'on' : '' }} btn-sm ml-2"
+                                                    data-user-id="{{ $user->id }}">
                                                     <span></span>
                                                 </div>
 
@@ -174,16 +187,7 @@
 
 
 
-                            {{-- <div class="mb-4">
-                                <p class="mg-b-10">نوع المستخدم</p>
-                                <select name="advertiser_type" class="form-control SlectBox"
-                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
-                                    <option title="office" value="office">مكتب</option>
-                                    <option title="broker" value="broker">وسيط</option>                                   
-                                     <option title="owner" value="owner">مالك</option>
-                                    <option title="user" value="user">مستخدم</option>
-                                </select>
-                            </div> --}}
+
                             <div class="mb-4">
                                 <p class="mg-b-10">نوع المستخدم</p>
                                 <select name="advertiser_type" class="form-control SlectBox"
@@ -231,6 +235,22 @@
                                 <input type="text" class="form-control" name="license_number" id="license_number">
                             </div>
 
+
+
+
+                            <div class="mb-4">
+                                <p class="mg-b-10">صلاحيات المستخدمين</p>
+                                <select name="roles[]" multiple="multiple" class="testselect2">
+                                    @foreach ($roles as $role)
+                                        <option title="{{ $role->name }}" value="{{ $role->id }}">
+                                            {{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+
+
                             <div class="form-group">
                                 <label for="title">البريد الاكتروني </label>
                                 <input type="text" class="form-control" name="email" id="email">
@@ -239,6 +259,7 @@
                                 <label for="password">كلمة السر</label>
                                 <input type="password" class="form-control" name="password" id="password">
                             </div>
+
 
 
                         </div>
@@ -389,6 +410,26 @@
             }
         }
     </script>
+    <script src="{{ URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
+    <!-- Internal Select2 js-->
+    <script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <!--Internal Fileuploads js-->
+    <script src="{{ URL::asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+    <!--Internal Fancy uploader js-->
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+    <!--Internal  Form-elements js-->
+    <script src="{{ URL::asset('assets/js/advanced-form-elements.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/select2.js') }}"></script>
+    <!--Internal Sumoselect js-->
+    <script src="{{ URL::asset('assets/plugins/sumoselect/jquery.sumoselect.js') }}"></script>
+    <!-- Internal TelephoneInput js-->
+    <script src="{{ URL::asset('assets/plugins/telephoneinput/telephoneinput.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/telephoneinput/inttelephoneinput.js') }}"></script>
     <!-- Internal Data tables -->
     <script src="{{ URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
@@ -417,40 +458,39 @@
     <!-- Internal Modal js-->
     <script src="{{ URL::asset('assets/js/modal.js') }}"></script>
     <script>
-    $(document).ready(function() {
-    $('.main-toggle').on('click', function() {
-        $(this).toggleClass('on');
-        var isToggleOn = $(this).hasClass('on');
-        var url = '{{ route('userCreate') }}';
-        var userId = $(this).data('user-id');
-        // Retrieve the CSRF token value from the meta tag
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        $(document).ready(function() {
+            $('.main-toggle').on('click', function() {
+                $(this).toggleClass('on');
+                var isToggleOn = $(this).hasClass('on');
+                var url = '{{ route('userCreate') }}';
+                var userId = $(this).data('user-id');
+                // Retrieve the CSRF token value from the meta tag
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    }
+                });
+
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: {
+                        isToggleOn: isToggleOn,
+                        userId: userId
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        // Handle the success response
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // Handle the error response
+                    }
+                });
+            });
         });
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            data: {
-                isToggleOn: isToggleOn,
-                userId: userId
-            },
-            success: function(response) {
-                console.log(response);
-                // Handle the success response
-            },
-            error: function(error) {
-                console.log(error);
-                // Handle the error response
-            }
-        });
-    });
-});
-
     </script>
 
     <script>

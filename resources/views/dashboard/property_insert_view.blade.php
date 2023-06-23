@@ -232,50 +232,50 @@
 
 
 
-                            <div class="row row-sm mg-t-20">
-                                <div class="col-lg">
-                                    <p class="mg-b-10">عدد الغرف</p>
-                                    <select name="numbeer_room" class="form-control SlectBox" onclick="console.log($(this).val())"
-                                        onchange="console.log('change is firing')">
-                                        <!--placeholder-->
-                            
-                                        @for ($i = 0; $i < 50; $i++)
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endfor
-                            
-                                    </select>
-                                </div>
-                            
-                            
-                                <div class="col-lg">
-                                    <p class="mg-b-10">عدد الحمامات</p>
-                                    <select name="numbeer_toilet" class="form-control SlectBox" onclick="console.log($(this).val())"
-                                        onchange="console.log('change is firing')">
-                                        @for ($i = 0; $i < 50; $i++)
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                            
-                                <div class="col-lg d-flex align-items-center justify-content-center">
-                                    <div class="d-flex justify-content-center">
-                                        <label class="ckbox">
-                                            <input checked type="checkbox" name="iscomment">
-                                            <span>السماح باالتعليقات</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            
-                                <div class="col-lg d-flex align-items-center justify-content-center">
-                                    <div class="d-flex justify-content-center">
-                                        <label class="ckbox">
-                                            <input checked type="checkbox" name="negotiate">
-                                            <span>قابل للتفاوض</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            
+                        <div class="row row-sm mg-t-20">
+                            <div class="col-lg">
+                                <p class="mg-b-10">عدد الغرف</p>
+                                <select name="numbeer_room" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                    <!--placeholder-->
+
+                                    @for ($i = 0; $i < 50; $i++)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+
+                                </select>
                             </div>
+
+
+                            <div class="col-lg">
+                                <p class="mg-b-10">عدد الحمامات</p>
+                                <select name="numbeer_toilet" class="form-control SlectBox"
+                                    onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                    @for ($i = 0; $i < 50; $i++)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+
+                            <div class="col-lg d-flex align-items-center justify-content-center">
+                                <div class="d-flex justify-content-center">
+                                    <label class="ckbox">
+                                        <input checked type="checkbox" name="iscomment">
+                                        <span>السماح باالتعليقات</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg d-flex align-items-center justify-content-center">
+                                <div class="d-flex justify-content-center">
+                                    <label class="ckbox">
+                                        <input checked type="checkbox" name="negotiate">
+                                        <span>قابل للتفاوض</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
 
 
 
@@ -350,9 +350,9 @@
 
                         <div class="col-lg">
                             <textarea class="form-control" placeholder="اضافة وصف للعقار" rows="10" name="description"></textarea>
-                        </div> 
+                        </div>
 
-<br>
+                        <br>
 
 
 
@@ -743,5 +743,5 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-                             async defer"></script>
+                                 async defer"></script>
 @endsection

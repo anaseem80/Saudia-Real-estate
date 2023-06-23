@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        $user = [
+        $userData = [
             [
 
                 'commercial_registration_no' => '12345678',
@@ -26,8 +27,8 @@ class UsersTableSeeder extends Seeder
                 'name' => 'محمد محمود',
                 'country' => 'Egypt',
                 'city' => 'الرياض',
-
                 'user_type' => 'admin',
+                // 'roles_name' => ['admin'],
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
 
@@ -44,6 +45,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'يوسف محمود',
                 'country' => 'Saudi Arabia',
                 'city' => 'الرياض',
+                // 'roles_name' => ['vendor'],
                 'user_type' => 'vendor',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -63,6 +65,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'زياد خالد',
                 'country' => 'Qatar',
                 'city' => 'الرياض',
+                // 'roles_name' => ['vendor'],
                 'user_type' => 'vendor',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -83,6 +86,7 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Qatar',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['vendor'],
                 'user_type' => 'vendor',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -103,6 +107,7 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Saudi Arabia',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['vendor'],
                 'user_type' => 'vendor',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -123,12 +128,14 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Saudi Arabia',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['user'],
                 'user_type' => 'user',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
                 'commercial_registration_no' => '12345678',
                 'license_number' => '12345645',
                 'advertiser_type' => 'user',
+                'user_type' => 'user',
                 'email' => 'user6@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('12345678'),
@@ -143,6 +150,7 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Saudi Arabia',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['user'],
                 'user_type' => 'user',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -162,6 +170,7 @@ class UsersTableSeeder extends Seeder
                 'country' => 'United Arab Emirates',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['user'],
                 'user_type' => 'user',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -181,12 +190,14 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Tunisia',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['user'],
                 'user_type' => 'user',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
                 'commercial_registration_no' => '12345678',
                 'license_number' => '12345645',
                 'advertiser_type' => 'user',
+                'user_type' => 'user',
                 'email' => 'user9@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('12345678'),
@@ -200,6 +211,7 @@ class UsersTableSeeder extends Seeder
                 'country' => 'Egypt',
                 'city' => 'الرياض',
 
+                // 'roles_name' => ['user'],
                 'user_type' => 'user',
                 'first_phone' => '123456789',
                 'second_phone' => '99999999999',
@@ -215,6 +227,25 @@ class UsersTableSeeder extends Seeder
 
             ],
         ];
-        DB::table('users')->insert($user);
+
+        $userPermission = [
+            'admin',
+            'vendor',
+            'user',   
+            'mediator',
+        ];
+
+        $rolelist = [];
+        foreach ($userPermission as $permissionName) {
+            $role = Role::create(['name' => $permissionName]);
+           
+            array_push($rolelist, $role->id);
+        }
+
+        
+        foreach ($userData as $data) {
+            $user = User::create($data);
+            $user->assignRole([$rolelist[rand(0,3)]]);
+        }
     }
 }
