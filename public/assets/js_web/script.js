@@ -248,6 +248,7 @@
 			nav:true,
 			smartSpeed: 1000,
 			autoplay: 500,
+			dir:"rtl",
 			navText: [ '<span class="far fa-angle-left"></span>', '<span class="far fa-angle-right"></span>' ],
 			responsive:{
 				0:{

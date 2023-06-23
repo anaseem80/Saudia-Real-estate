@@ -4596,6 +4596,7 @@ div#mCSB_1_container{
   font-size: 30px;
   line-height: 40px;
   color: #ffffff;
+  text-align: right;
   font-weight: 700;
 }
 
@@ -4607,7 +4608,7 @@ div#mCSB_1_container{
 .subscribe-section .subscribe-form .form-group{
   position: relative;
   margin: 0px;
-  padding-right: 180px;
+  padding-left: 180px;
   border-radius: 5px;
   overflow: hidden;
   background-color: #ffffff;
@@ -4627,7 +4628,7 @@ div#mCSB_1_container{
 .subscribe-section .subscribe-form .form-group button{
   position: absolute;
   top: 0px;
-  right: 0px;
+  left: 0px;
   width: 180px;
   height: 60px;
   font-size: 17px;
@@ -5868,7 +5869,7 @@ div#mCSB_1_container{
   position: relative;
   display: block;
   margin-bottom: 10px;
-  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .content_block_3 .content-box .list li:last-child{
@@ -5881,7 +5882,7 @@ div#mCSB_1_container{
   background-color: #c7d9cf;
   width: 8px;
   height: 8px;
-  left: 0px;
+  right: 0px;
   top: 10px;
   border-radius: 50%;
 }

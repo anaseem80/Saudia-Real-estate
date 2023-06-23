@@ -9,7 +9,11 @@
 
 
 @section('css')
-
+    <style>
+        .custom-label{
+            margin-top: 80px
+        }
+    </style>
 @section('title')
     تسجيل جديد
 @stop
@@ -78,8 +82,8 @@
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group">
-                                        <label for="licence">رقم الرخصة</label>
+                                    <div class="form-group mt-5">
+                                        <label for="licence" class="custom-label">رقم الرخصة</label>
                                         <input type="number" id="licence" name="licence" required="">
                                     </div>
                                     <div class="form-group">
@@ -93,14 +97,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="city">المدينة</label>
+                                        <label for="city" class="custom-label">المدينة</label>
                                         <select name="city" id="city">
                                             <option value="EG">الرياض</option>
                                             <option value="SA">جدة</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="phone">رقم الهاتف</label>
+                                        <label for="phone" class="custom-label">رقم الهاتف</label>
                                         <div class="d-flex">
                                             <div class="w-100"><input type="number" id="phone" name="phone" required="" placeholder="0000000000"></div>
                                             <div class="mr-2"><input type="number" id="ccode" name="ccode" placeholder="+000" required=""></div>

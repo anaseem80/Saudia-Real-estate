@@ -47,6 +47,9 @@ Route::get('/send',function () {
 
 Route::get('/goTest', function () {return view('front_end.test');})->name('goTest');
 Route::get('/index', function () {return view('front_end.home');})->name('home');
+Route::get('/contact', function () {return view('front_end.contact');})->name('contact');
+Route::get('/privacy', function () {return view('front_end.privacy-policy');})->name('privacy');
+Route::get('/about', function () {return view('front_end.about');})->name('about');
 
 // Route::get('auth/login', function () {return view('front_end.auth.login');})->name('login');
 // Route::get('auth/register', function () {return view('front_end.auth.register');})->name('register');

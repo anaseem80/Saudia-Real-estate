@@ -55,6 +55,7 @@
         -ms-transform: rotate(-135deg);
             transform: rotate(-135deg); }
   .nice-select.open .list {
+    width: 100%;
     opacity: 1;
     pointer-events: auto;
     -webkit-transform: scale(1) translateY(0);

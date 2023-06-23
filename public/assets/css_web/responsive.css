@@ -1019,7 +1019,9 @@
   }
 
   .subscribe-section .subscribe-form .form-group{
-    padding-right: 0px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .subscribe-section .subscribe-form .form-group button{
