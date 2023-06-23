@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyTypeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingWebController;
 use App\Http\Controllers\UserController;
@@ -32,7 +33,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__.'/auth.php';
-
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    
+});
 Route::get('/get-cities/{country}', [CityController::class, 'getCitiesByCountry']);
 
 Route::get('/send',function () {
@@ -191,6 +195,7 @@ Route::middleware(['auth'])->group(function () {
 
     
  });
+
 
 //Route::get('/{page}', ntroller@index');
 

@@ -68,5 +68,3 @@ Route::post('addproperty', 'store')->name('addproperty');
 Route::get('mostview', 'getMostViewedProperties')->name('mostview');
 })->middleware(['auth:sanctum']);
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-
-
