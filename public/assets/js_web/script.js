@@ -617,18 +617,26 @@
 
 	if ($('.property-details .bxslider').length) {
 		$('.property-details .bxslider').bxSlider({
-			auto:true,
+			// auto:true,
 	        nextSelector: '.property-details #slider-next',
 	        prevSelector: '.property-details #slider-prev',
 	        nextText: '<i class="fa fa-angle-right"></i>',
 	        prevText: '<i class="fa fa-angle-left"></i>',
 	        mode: 'fade',
-	        auto: 'true',
+	        // auto: 'true',
 	        speed: '700',
+			onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+				$slideElement.on('click', function () {
+					var x = $(this).children(".product-image").children(".image-box").children("img")[0].src;
+					$(".selected1").each(function(){
+						console.log(this.src)
+						this.src = x
+					})
+				});
+			},
 	        pagerCustom: '.property-details .slider-pager .thumb-box'
 	    });
 	};
-
 
 	/*	=========================================================================
 	When document is Scrollig, do
