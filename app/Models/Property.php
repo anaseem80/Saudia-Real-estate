@@ -35,6 +35,11 @@ class Property extends Model
     {
         return $this->belongsTo(Catogery::class,'catogerie_id');
     }
+
+    //    public function property_type()
+    // {
+    //     return $this->belongsTo(PropertyType::class,'catogerie_id');
+    // }
     public function comments()
     {
         return $this->hasMany(Comment::class);

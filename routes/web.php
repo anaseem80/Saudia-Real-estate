@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllersntroller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CatogeryController;
 use App\Http\Controllers\EnquiryController;
@@ -17,7 +16,6 @@ use App\Http\Controllers\SettingWebController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebControlle;
 use App\Mail\Testmail;
-use App\Models\Catogery;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +74,8 @@ Route::get('/blogs/{id}', 'show')->name('showblog');
 
 Route::controller(SettingWebController::class)->group(function () {
     Route::get('/setting_web', 'index')->name('setting_web');
+        // Route::get('/setting_web', 'index')->name('setting_web');
+
 
 });
 
@@ -92,7 +92,8 @@ Route::post('/addreport', 'addreport')->name('addreport');
 Route::get('/detelisscreen/{id}', 'detalisscreen')->name('detelisscreen');
 Route::get('/moreproperty/{country}', 'moreproperty')->name('moreproperty');
 Route::get('/aboutpage', 'aboutpage')->name('aboutpage');
-Route::get('/terms', 'terms')->name('terms');
+Route::get('/contactPage', 'contactPage')->name('contactPage');
+Route::get('/terms', 'privecyPage')->name('terms');
 Route::get('/morepropertyCato/{catogery}', 'morepropertyCato')->name('morepropertyCato');
 Route::get('/filterweb',[PropertyController::class,'filterweb'] )->name('filterweb');
 });

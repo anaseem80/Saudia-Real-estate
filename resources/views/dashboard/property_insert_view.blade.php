@@ -150,7 +150,7 @@
 
                                     <option value="">اختار الدوله</option>
                                     @foreach ($countrys as $country)
-                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        <option value="{{ $country->name }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -333,7 +333,7 @@
 
                                         <option value="">اختار نوع العقار</option>
                                         @foreach ($propertyTypes as $data)
-                                            <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                            <option value="{{ $data->title }}">{{ $data->title }}</option>
                                         @endforeach
 
                                     </select>
@@ -441,9 +441,9 @@
                             $('#city').empty();
                             $('#city').append('<option value="">اختار المدينه</option>');
                             $.each(response, function(key, city) {
-                                console.log('<option value="' + city.id + '">' + city
+                                console.log('<option value="' + city.name + '">' + city
                                     .name + '</option>')
-                                $('#city').append('<option value="' + city.id + '">' +
+                                $('#city').append('<option value="' + city.name + '">' +
                                     city.name + '</option>');
                             });
                         }
@@ -743,5 +743,5 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-                                                     async defer"></script>
+                                                                     async defer"></script>
 @endsection

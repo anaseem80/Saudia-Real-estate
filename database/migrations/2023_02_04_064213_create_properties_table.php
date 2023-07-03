@@ -25,6 +25,14 @@ return new class extends Migration
             $table->integer('recommended')->default(0);
             $table->unsignedBigInteger('catogerie_id');
             $table->foreign('catogerie_id')->references('id')->on('catogerys')->onDelete('cascade');
+
+
+
+            //  $table->unsignedBigInteger('propertytype_id');
+            // $table->foreign('propertytype_id')->references('id')->on('property_types')->onDelete('cascade');
+
+
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

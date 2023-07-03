@@ -8,6 +8,7 @@ use App\Models\Enquiry;
 use App\Models\Property;
 use App\Models\Report;
 use App\Models\Setting;
+use App\Models\SettingWeb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,115 +17,157 @@ class WebControlle extends Controller
     public function index()
     {
         // Query to retrieve the most countries where properties are established
-       
-            $propertiesviews = Property::orderBy('views', 'desc')->get();
-           
-            $blogs = Blog::limit(2)->get();
-            $catogerys= Catogery::all();
-            return view('front_end.home',
-             [
-               
-                'propertiesviews' => $propertiesviews, 
-             
-                'catogerys'=>  $catogerys,
-                'blogs'=>  $blogs
-             ]);
+
+        $propertiesviews = Property::orderBy('views', 'desc')->get();
+
+        $blogs = Blog::limit(2)->get();
+        $catogerys = Catogery::all();
+        return view(
+            'front_end.home',
+            [
+
+                'propertiesviews' => $propertiesviews,
+
+                'catogerys' => $catogerys,
+                'blogs' => $blogs
+            ]
+        );
     }
     public function topView()
     {
         $propertiesviews = Property::orderBy('views', 'desc')->get();
-        $catogerys= Catogery::all();
-        return view('dashboard.more_view',
-        [
-     
-           'property' => $propertiesviews,  'catogerys'=>  $catogerys
-          
-        ]);
+        $catogerys = Catogery::all();
+        return view(
+            'dashboard.more_view',
+            [
+
+                'property' => $propertiesviews,
+                'catogerys' => $catogerys
+
+            ]
+        );
     }
 
-public function newProperty()
-{
-    $newProperties = Property::orderBy('created_at', 'desc')->where('status',1)->get();
-    $catogerys= Catogery::all();
-    return view('dashboard.more_view',
-    [
- 
-       'property' => $newProperties,     'catogerys'=>  $catogerys
-      
-    ]);
-}
-    public function detalisscreen($id){
+    public function newProperty()
+    {
+        $newProperties = Property::orderBy('created_at', 'desc')->where('status', 1)->get();
+        $catogerys = Catogery::all();
+        return view(
+            'dashboard.more_view',
+            [
 
-        $property = Property::with('property_details', 'images', 'facilities','user','catogery')->find($id);
+                'property' => $newProperties,
+                'catogerys' => $catogerys
+
+            ]
+        );
+    }
+    public function detalisscreen($id)
+    {
+
+        $property = Property::with('property_details', 'images', 'facilities', 'user', 'catogery')->find($id);
         $propertiesviews = Property::orderBy('views', 'desc')->take(3)->get();
-        if (!$property) {
+        if (!$property)
+        {
             return response()->json(['error' => 'Property not found'], 404);
         }
-        $catogerys= Catogery::all();
-        return view('dashboard.detalis_view',['property' => $property,   'catogerys'=>  $catogerys   ,'propertiesviews' => $propertiesviews, ]);
+        $catogerys = Catogery::all();
+        return view('dashboard.detalis_view', ['property' => $property, 'catogerys' => $catogerys, 'propertiesviews' => $propertiesviews,]);
 
 
 
     }
 
-    public function moreproperty($country){
-        $property = Property::where('country',$country)->get();
-        $catogerys= Catogery::all();
+    public function moreproperty($country)
+    {
+        $property = Property::where('country', $country)->get();
+        $catogerys = Catogery::all();
 
-        
+
         return view(
-        'dashboard.more_view',
-        [
-        'property'=>$property,
-        'catogerys'=>  $catogerys
+            'dashboard.more_view',
+            [
+                'property' => $property,
+                'catogerys' => $catogerys
+            ]
+        );
+
+
+
+    }
+
+    public function search($sea)
+    {
+        $property = Property::where('name', $sea)->get();
+
+        $catogerys = Catogery::all();
+
+        return view('dashboard.more_view', [
+            'property' => $property,
+            'catogerys' => $catogerys
         ]);
 
 
 
     }
 
-    public function search($sea){
-        $property = Property::where('name',$sea)->get();
+    public function morepropertyCato($catogery)
+    {
+        $property = Property::where('catogerie_id', $catogery)->get();
 
-        $catogerys= Catogery::all();
-        
-        return view('dashboard.more_view',['property'=>$property,
-        'catogerys'=>  $catogerys]);
+        $catogerys = Catogery::all();
 
-
-
-    }
-
-    public function morepropertyCato($catogery){
-        $property = Property::where('catogerie_id',$catogery)->get();
-
-        $catogerys= Catogery::all();
-        
-        return view('dashboard.more_view',['property'=>$property,
-        'catogerys'=>  $catogerys]);
+        return view('dashboard.more_view', [
+            'property' => $property,
+            'catogerys' => $catogerys
+        ]);
 
 
 
     }
 
 
-    public function aboutpage(){
-      
+    public function privecyPage()
+    {
+
+        $setting = SettingWeb::select('terms')->first();
+
+
+
+        return view('front_end.privacy-policy', ['setting' => $setting]);
+
+
+
+    }
+    public function aboutpage()
+    {
+
+        $setting = SettingWeb::select('about_page')->first();
+
+
+
+        return view('front_end.about', ['setting' => $setting]);
+
+
+
+    }    
+    public function contactPage()
+    {
+
         $setting = Setting::first();
-
-        
-        return view('dashboard.about_view', ['setting' => $setting]);
-
-
+        return view('front_end.contact', ['setting' => $setting]);
 
     }
-    public function terms(){
-      
-        $catogerys= Catogery::all();
+    public function terms()
+    {
 
-        
-        return view('dashboard.terms',
-        ['catogerys'=>  $catogerys]);
+        $catogerys = Catogery::all();
+
+
+        return view(
+            'dashboard.terms',
+            ['catogerys' => $catogerys]
+        );
 
 
 
@@ -133,8 +176,8 @@ public function newProperty()
     {
 
 
-        $report = new Report(); 
-        $report->username = $request->username; 
+        $report = new Report();
+        $report->username = $request->username;
         $report->userphone = $request->userphone;
         $report->useremail = $request->useremail;
         $report->description = $request->description;
@@ -149,8 +192,8 @@ public function newProperty()
     }
     public function addenqueris(Request $request)
     {
-        $enquiry = new Enquiry(); 
-        $enquiry->username = $request->username; 
+        $enquiry = new Enquiry();
+        $enquiry->username = $request->username;
         $enquiry->userphone = $request->userphone;
         $enquiry->useremail = $request->useremail;
         $enquiry->description = $request->description;
