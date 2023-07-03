@@ -33,8 +33,10 @@
                      <li><i class="icon-15"></i>{{ $item->views }}</li>
                      <li><i class="icon-16"></i>60 </li>
                  </ul>
-                 <div class="btn-box text-right"><a href="property-details.html" class="theme-btn btn-two">مشاهدة
-                         التفاصيل</a></div>
+                 <div class="btn-box text-right"><a href="{{ route('detelisscreen', $item->id) }}"
+                         class="theme-btn btn-two">مشاهدة
+                         التفاصيل
+                     </a></div>
              </div>
          </div>
      </div>

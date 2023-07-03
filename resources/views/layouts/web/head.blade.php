@@ -194,12 +194,7 @@
                                         </ul>
                                     </li> --}}
                                      <li class="dropdown"><a href="index.html"><span>المدونة</span></a>
-                                         <ul>
-                                             <li><a href="blog-1.html">Blog 01</a></li>
-                                             <li><a href="blog-2.html">Blog 02</a></li>
-                                             <li><a href="blog-3.html">Blog 03</a></li>
-                                             <li><a href="blog-details.html">Blog Details</a></li>
-                                         </ul>
+
                                      </li>
                                      <li><a href="{{ route('aboutpage') }}"><span>معلومات عنا</span></a></li>
                                      <li><a href="{{ route('terms') }}"><span>سياسة الخصوصيه</span></a></li>

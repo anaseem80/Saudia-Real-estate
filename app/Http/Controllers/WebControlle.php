@@ -65,14 +65,14 @@ class WebControlle extends Controller
     public function detalisscreen($id)
     {
 
-        $property = Property::with('property_details', 'images', 'facilities', 'user', 'catogery')->find($id);
-        $propertiesviews = Property::orderBy('views', 'desc')->take(3)->get();
+        $property = Property::with('property_details', 'images', 'user', 'catogery')->find($id);
+       
         if (!$property)
         {
             return response()->json(['error' => 'Property not found'], 404);
         }
-        $catogerys = Catogery::all();
-        return view('dashboard.detalis_view', ['property' => $property, 'catogerys' => $catogerys, 'propertiesviews' => $propertiesviews,]);
+       
+        return view('front_end.property-details', ['property' => $property]);
 
 
 
@@ -177,10 +177,10 @@ class WebControlle extends Controller
 
 
         $report = new Report();
-        $report->username = $request->username;
-        $report->userphone = $request->userphone;
-        $report->useremail = $request->useremail;
-        $report->description = $request->description;
+        $report->username = $request->name;
+        $report->userphone = $request->phone;
+        $report->useremail = $request->email;
+        $report->description = $request->message;
         $report->property_id = $request->property_id;
         $report->save();
 
@@ -193,10 +193,10 @@ class WebControlle extends Controller
     public function addenqueris(Request $request)
     {
         $enquiry = new Enquiry();
-        $enquiry->username = $request->username;
-        $enquiry->userphone = $request->userphone;
-        $enquiry->useremail = $request->useremail;
-        $enquiry->description = $request->description;
+        $enquiry->username = $request->name;
+        $enquiry->userphone = $request->phone;
+        $enquiry->useremail = $request->email;
+        $enquiry->description = $request->message;
         $enquiry->property_id = $request->property_id;
         $enquiry->save();
         session()->flash('Add', 'تم ارسال الاستعلام بنجاح');
