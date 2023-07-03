@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Catogery;
+use App\Models\Comment;
 use App\Models\Enquiry;
 use App\Models\Property;
 use App\Models\Report;
 use App\Models\Setting;
 use App\Models\SettingWeb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WebControlle extends Controller
@@ -65,7 +67,7 @@ class WebControlle extends Controller
     public function detalisscreen($id)
     {
 
-        $property = Property::with('property_details', 'images', 'user', 'catogery')->find($id);
+        $property = Property::with('property_details', 'images', 'user', 'catogery','comments                                                                                ')->find($id);
        
         if (!$property)
         {
@@ -202,5 +204,34 @@ class WebControlle extends Controller
         session()->flash('Add', 'تم ارسال الاستعلام بنجاح');
         return back();
     }
-
+ public function addComment(Request $request)
+{
+    try {
+        $validatedData = $request->validate([
+            'property_id' => 'required|exists:properties,id',
+            'content' => 'required',
+        ], [
+            'property_id.required' => 'حقل رقم العقار مطلوب',
+            'property_id.exists' => 'العقار غير موجود',
+            'content.required' => 'حقل المحتوى مطلوب',
+        ]);
+        
+        // التحقق من وجود المستخدم المسجل حالياً
+        if (!Auth::check()) {
+            throw new \Exception('يجب تسجيل الدخول لتتمكن من إضافة تعليق');
+        }
+        
+        $comment = new Comment();
+        $comment->user_id = Auth::id();
+        $comment->property_id = $validatedData['property_id'];
+        $comment->content = $validatedData['content'];
+        $comment->save();
+        
+        session()->flash('Add', 'تم إضافة التعليق بنجاح');
+        return back();
+    } catch (\Exception $e) {
+        session()->flash('error', $e->getMessage());
+        return back();
+    }
+}
 }

@@ -94,6 +94,9 @@ Route::get('/moreproperty/{country}', 'moreproperty')->name('moreproperty');
 Route::get('/aboutpage', 'aboutpage')->name('aboutpage');
 Route::get('/contactPage', 'contactPage')->name('contactPage');
 Route::get('/terms', 'privecyPage')->name('terms');
+
+Route::get('/addComment', 'addComment')->name('addComment');
+
 Route::get('/morepropertyCato/{catogery}', 'morepropertyCato')->name('morepropertyCato');
 Route::get('/filterweb',[PropertyController::class,'filterweb'] )->name('filterweb');
 });
