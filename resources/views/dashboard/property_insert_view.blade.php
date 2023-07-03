@@ -743,5 +743,5 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-                                 async defer"></script>
+                                                     async defer"></script>
 @endsection

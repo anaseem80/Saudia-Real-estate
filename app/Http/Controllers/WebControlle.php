@@ -16,23 +16,16 @@ class WebControlle extends Controller
     public function index()
     {
         // Query to retrieve the most countries where properties are established
-        $mostCountries = DB::table('properties')
-            ->select(Property::raw('count(*) as count, country'))
-            ->groupBy('country')
-            ->orderBy('count', 'desc')
-            ->limit(4)
-            ->get();
-            $propertiesviews = Property::orderBy('views', 'desc')->take(6)->get();
+       
+            $propertiesviews = Property::orderBy('views', 'desc')->get();
            
-            $propertiesRec = Property::where('recommended',1)->get();
             $blogs = Blog::limit(2)->get();
             $catogerys= Catogery::all();
             return view('front_end.home',
              [
-                'mostCountries' => $mostCountries,
+               
                 'propertiesviews' => $propertiesviews, 
              
-                'propertiesRec' => $propertiesRec->where('status',1),
                 'catogerys'=>  $catogerys,
                 'blogs'=>  $blogs
              ]);

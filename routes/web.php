@@ -64,10 +64,10 @@ Route::get('/about', function () {return view('front_end.about');})->name('about
 Route::controller(BlogController::class)->group(function () {
 Route::get('/blogview',  'index')->name('blogview');
 Route::get('/blogscreate',  'create')->name('blogscreate');
-Route::post('/blogs.store', 'store')->name('blogs.store');;
-Route::get('/blogs/{id}/edit',  'edit')->name('blogs.edit');;
-Route::post('/blogs.update', 'update')->name('blogs.update');;
-Route::post('/blogs.destroy', 'destroy')->name('blogs.destroy');;
+Route::post('/blogs.store', 'store')->name('blogs.store');
+Route::get('/blogs/{id}/edit',  'edit')->name('blogs.edit');
+Route::post('/blogs.update', 'update')->name('blogs.update');
+Route::post('/blogs.destroy', 'destroy')->name('blogs.destroy');
 Route::get('/blogs/{id}', 'show')->name('showblog');
 });
 
