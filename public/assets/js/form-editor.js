@@ -29,6 +29,13 @@ $(function() {
 		},
 		theme: 'snow'
 	});
+	var quill = new Quill('#quillEditor2', {
+		modules: {
+			toolbar: toolbarOptions
+		},
+		theme: 'snow'
+	});
+	
 	var quillModal = new Quill('#quillEditorModal', {
 		modules: {
 			toolbar: toolbarOptions
