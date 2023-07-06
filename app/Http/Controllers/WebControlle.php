@@ -67,7 +67,7 @@ class WebControlle extends Controller
     public function detalisscreen($id)
     {
 
-        $property = Property::with('property_details', 'images', 'user', 'catogery','comments                                                                                ')->find($id);
+        $property = Property::with('property_details', 'images', 'user', 'catogery','comments')->find($id);
        
         if (!$property)
         {
