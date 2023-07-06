@@ -38,35 +38,42 @@
     
     .tab {
         overflow: hidden;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
+        border-bottom: 1px solid #ccc;
+        background-color: #fff;
     }
     
     .tab button {
         background-color: inherit;
         float: right;
         border: none;
-        outline: none;
+        outline: navajowhite;
         cursor: pointer;
         padding: 14px 16px;
         transition: 0.3s;
-        font-size: 17px;
+        font-size: 15px;
+
     }
     
     .tab button:hover {
         background-color: #ddd;
+        outline: navajowhite
     }
     
     .tab button.active {
-        background-color: #ccc;
+        background-color: #0428c4;
+        color: #fff;
+        outline: navajowhite
     }
     
     .tabcontent {
         display: none;
         padding: 6px 12px;
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
         border-top: none;
         animation: fadeEffect 1s;
+        /* margin-top: 20px; */
+        background-color: #fff;
+        padding: 15px
     }
     
     @keyframes fadeEffect {
@@ -159,17 +166,7 @@
     </div>
 @endif
 
-
-
-
-
-
-
-
-
-
-
-<h2>ألسندات المتحركة</h2>
+<h2 class="mt-3">ألسندات المتحركة</h2>
 
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen"> معلومات عنا</button>
@@ -188,33 +185,24 @@
 
 
 <div id="Tab1" class="tabcontent">
-  <h3>التبويب 1</h3>
-  <p>محتوى التبويب 1 يتم وضعه هنا.</p>
-
-
-
-
-
-
-
-
-
+    {{-- <h3 class="mb-3">معلومات عنا</h3> --}}
+    <div class="ql-wrapper ql-wrapper-demo">
+        <div id="quillEditor">
+            <p>معلومات عنا</p>
+        </div>
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+    </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
 <div id="Tab2" class="tabcontent">
-  <h3>التبويب 2</h3>
-  <p>محتوى التبويب 2 يتم وضعه هنا.</p>
+    {{-- <h3 class="mb-3">الشروط والأحكام</h3> --}}
+    <div class="ql-wrapper ql-wrapper-demo">
+        <div id="quillEditor2">
+            <p>الشروط والأحكام</p>
+        </div>
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+    </div>
 </div>
 
 
@@ -231,21 +219,13 @@
 
 
 
-  <h3>تغيير الوان الموقع</h3>
+  <h3 class="text-center">تغيير الوان الموقع</h3>
   <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
-    <div class="card">
-        <div class="card-body" style="text-align: center;">
-            <div class="main-content-label mg-b-5">
-                Color Picker
-            </div>
-            <p class="mg-b-20">It is Very Easy to Customize and it uses in your website application.</p>
+    <div class="card shadow-none border-0">
+        <div class="card-body text-center">
+
             <div>
                 <input id="showAlpha" type="text" class="form-control">
-            
-            </div>
-            <p class="mg-t-40 mg-b-10">You can allow alpha transparency selection. Check out these examples.</p>
-            <div>
-                <!-- Additional content here -->
             </div>
         </div>
     </div>
@@ -416,14 +396,6 @@
         modal.find('.modal-body #code').val(code);
     })
 </script>
-
-
-
-
-
-
-
-
 <script>
     $(document).ready(function() {
         $('#exampleModal2').on('show.bs.modal', function(event) {
@@ -454,7 +426,10 @@
 <script src="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js')}}"></script>
 <!--Internal  pickerjs js -->
 <script src="{{URL::asset('assets/plugins/pickerjs/picker.min.js')}}"></script>
+<!--Internal quill js -->
+<script src="{{URL::asset('assets/plugins/quill/quill.min.js')}}"></script>
 <!-- Internal form-elements js -->
 <script src="{{URL::asset('assets/js/form-elements.js')}}"></script>
-
+<!-- Internal Form-editor js -->
+<script src="{{URL::asset('assets/js/form-editor.js')}}"></script>
 @endsection

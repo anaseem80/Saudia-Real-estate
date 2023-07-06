@@ -195,6 +195,8 @@
                                 <select id="city" name="city" class="form-control SlectBox"
                                     onclick="console.log($(this).val())" onchange="console.log('change is firing')">
                                     <option value="">اختار المدينه</option>
+                                    <option value="الدقي">الدقي</option>
+
                                 </select>
                             </div>
 
@@ -528,18 +530,6 @@
 
         });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         $("#pac-input").focusin(function() {
             $(this).val('');
@@ -742,6 +732,5 @@
             $("#longitude").val(Lng);
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-                                                                     async defer"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANd3nsdL7bmOR-8UkZDrTNtjaX63JbjZs&libraries=places&callback=initAutocomplete&language=ar&region=EG" async defer></script>
 @endsection
