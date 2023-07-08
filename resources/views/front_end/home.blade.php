@@ -48,9 +48,9 @@
                                 <div class="top-search">
                                     <form action="index.html" method="post" class="search-form">
                                         <div class="row clearfix">
-                                            <div class="col-lg-4 col-md-12 col-sm-12 column">
+                                            <div class="col-12 column">
                                                 <div class="form-group">
-                                                    <label>بحث</label>
+                                                    <label>البحث</label>
                                                     <div class="field-input">
                                                         <i class="fas fa-search"></i>
                                                         <input type="search" name="search-field"
@@ -59,7 +59,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                            {{-- <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                 <div class="form-group">
                                                     <label>العنوان</label>
                                                     <div class="select-box">
@@ -87,14 +87,14 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="search-btn">
                                             <button type="submit">البحث <i class="fas fa-search"></i> </button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="switch_btn_one ">
+                                {{-- <div class="switch_btn_one ">
                                     <button class="nav-btn nav-toggler navSidebar-button clearfix search__toggler">بحث
                                         متقدم<i class="fas fa-angle-down"></i></button>
                                     <div class="advanced-search">
@@ -215,7 +215,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="tab" id="tab-2">
@@ -223,18 +223,18 @@
                                 <div class="top-search">
                                     <form action="index.html" method="post" class="search-form">
                                         <div class="row clearfix">
-                                            <div class="col-lg-4 col-md-12 col-sm-12 column">
+                                            <div class="col-12 column">
                                                 <div class="form-group">
                                                     <label>البحث</label>
                                                     <div class="field-input">
                                                         <i class="fas fa-search"></i>
                                                         <input type="search" name="search-field"
-                                                            placeholder="Search by Property, Location or Landmark..."
+                                                            placeholder="البحث بواسطة العقار, العنوان او معلم معروف..."
                                                             required="">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                            {{-- <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                 <div class="form-group">
                                                     <label>العنوان</label>
                                                     <div class="select-box">
@@ -263,14 +263,14 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="search-btn">
                                             <button type="submit">بحث <i class="fas fa-search"></i> </button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="switch_btn_one ">
+                                {{-- <div class="switch_btn_one ">
                                     <button
                                         class="nav-btn nav-toggler navSidebar-button clearfix search__toggler">Advanced
                                         Search<i class="fas fa-angle-down"></i></button>
@@ -393,7 +393,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -404,7 +404,110 @@
 </section>
 <!-- banner-section end -->
 
-
+<!-- category-section -->
+<section class="category-section category-page centred mr-0 pt-120 pb-90">
+    <div class="auto-container">
+        <div class="sec-title centred">
+            <h2>الأقسام المتاحة</h2>
+            {{-- <p>لوريم ابسيوم.</p> --}}
+        </div>
+        <div class="inner-container wow slideInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+            <ul class="category-list clearfix">
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h5><a href="property-details.html">Residential</a></h5>
+                            <span>52</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-2"></i></div>
+                            <h5><a href="property-details.html">Commercial</a></h5>
+                            <span>20</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-3"></i></div>
+                            <h5><a href="property-details.html">Appertment</a></h5>
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-4"></i></div>
+                            <h5><a href="property-details.html">Industrial</a></h5>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-5"></i></div>
+                            <h5><a href="property-details.html">Building Code</a></h5>
+                            <span>27</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-6"></i></div>
+                            <h5><a href="property-details.html">Land</a></h5>
+                            <span>52</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-7"></i></div>
+                            <h5><a href="property-details.html">Floor Area</a></h5>
+                            <span>20</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-8"></i></div>
+                            <h5><a href="property-details.html">Communal land</a></h5>
+                            <span>35</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-9"></i></div>
+                            <h5><a href="property-details.html">Offices</a></h5>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-10"></i></div>
+                            <h5><a href="property-details.html">Factory</a></h5>
+                            <span>27</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- category-section end -->
 {{-- <!-- category-section -->
         <section class="category-section centred">
             <div class="auto-container">

@@ -1766,7 +1766,7 @@ div#mCSB_1_container{
   color: #fff;
   text-align: center;
   text-transform: uppercase;
-  background-color: #2dbe6c;
+  background-color: #92be2d;
   border-radius: 5px 5px 0px 0px;
   width: 120px;
   padding: 10px 10px;
@@ -2864,7 +2864,7 @@ div#mCSB_1_container{
 }
 
 .chooseus-block:nth-child(2) .chooseus-block-one .inner-box .icon-box{
-  color: #2dbe6c;
+  color: #92be2d;
 }
 
 .chooseus-block:last-child .chooseus-block-one .inner-box .icon-box{
@@ -3286,7 +3286,7 @@ div#mCSB_1_container{
 
 .news-block-one .inner-box .image-box .category{
   position: absolute;
-  left: 30px;
+  right: 30px;
   bottom: 30px;
   font-size: 12px;
   line-height: 26px;
@@ -3327,8 +3327,8 @@ div#mCSB_1_container{
 .news-block-one .inner-box .lower-content .post-info li{
   position: relative;
   display: inline-block;
-  float: left;
-  margin-right: 30px;
+  float: right;
+  margin-left: 30px;
   color: #93959e;
   font-size: 15px;
   padding: 7px 0px;
@@ -3340,12 +3340,12 @@ div#mCSB_1_container{
 
 .news-block-one .inner-box .lower-content .post-info li.author-box{
   position: relative;
-  padding: 11px 0px 11px 50px;
+  padding: 11px 50px 11px 0;
 }
 
 .news-block-one .inner-box .lower-content .post-info li.author-box .author-thumb{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 0px;
   width: 40px;
   height: 40px;
@@ -3384,7 +3384,7 @@ div#mCSB_1_container{
   width: 1px;
   height: 18px;
   top: 11px;
-  right: -15px;
+  left: -15px;
 }
 
 .news-block-one .inner-box .lower-content .post-info li:last-child:before{
@@ -3395,6 +3395,7 @@ div#mCSB_1_container{
   position: relative;
   display: block;
   margin-bottom: 22px;
+  text-align: right;
 }
 
 .news-block-one .inner-box .lower-content .theme-btn{
@@ -7568,7 +7569,28 @@ div#mCSB_1_container{
   margin-bottom: 0px;
   padding-top: 15px;
 }
-
+.comment-box{
+  margin: 15px 0;
+}
+.comment-box .comment-picture{
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+@media(max-width:992px){
+  .comment-box .comment-picture{
+    margin-right: auto;
+    margin: unset;
+    margin-bottom: 15px;
+  }
+}
+.comment-box:not(:last-child){
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.comment-box .comment-picture img{
+  object-fit: cover;
+}
 .property-details-content .form-group input[type='text'],
 .property-details-content .form-group input[type='email'],
 .property-details-content .form-group input[type='tel'],
@@ -7969,7 +7991,7 @@ div#mCSB_1_container{
   text-align: center;
   font-size: 16px;
   color: #93959e;
-  border-right: 1px solid #2dbe6c;
+  border-right: 1px solid #92be2d;
   background: transparent;
   z-index: 1;
 }
@@ -8499,7 +8521,7 @@ div#mCSB_1_container{
 }
 
 .properties-section tbody tr td p i.yes{
-  color: #2dbe6c;
+  color: #92be2d;
 }
 
 .properties-section tbody tr td p i.no{
@@ -8945,11 +8967,11 @@ div#mCSB_1_container{
 }
 
 .myprofile-section .other-option .radio-box input[type="checkbox"]:checked + label:before {
-  border: 2px solid #2dbe6c;
+  border: 2px solid #92be2d;
 }
 
 .myprofile-section .other-option .radio-box input[type="checkbox"]:checked + label:after {
-  background-color: #2dbe6c;
+  background-color: #92be2d;
 }
 
 .myprofile-section .property-details h6{
@@ -9245,6 +9267,7 @@ div#mCSB_1_container{
 .blog-sidebar{
   position: relative;
   display: block;
+  text-align: right;
 }
 
 .blog-sidebar .sidebar-widget{
@@ -9314,8 +9337,9 @@ div#mCSB_1_container{
 .blog-sidebar .social-widget .social-links li{
   position: relative;
   display: inline-block;
-  float: left;
-  margin-right: 15px;
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 8px;
 }
 
 .blog-sidebar .social-widget .social-links li:last-child{
@@ -9400,7 +9424,7 @@ div#mCSB_1_container{
 .blog-sidebar .post-widget .post{
   position: relative;
   display: block;
-  padding-left: 100px;
+  padding-right: 100px;
   padding-bottom: 20px;
   margin-bottom: 15px;
   min-height: 106px;
@@ -9414,7 +9438,7 @@ div#mCSB_1_container{
 
 .blog-sidebar .post-widget .post .post-thumb{
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 5px;
   width: 80px;
   height: 80px;
@@ -9503,6 +9527,7 @@ div#mCSB_1_container{
   display: block;
   font-size: 26px;
   line-height: 30px;
+  text-align: right;
   font-weight: 500;
   margin-bottom: 17px;
 }

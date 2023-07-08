@@ -172,7 +172,7 @@
   <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen"> معلومات عنا</button>
   <button class="tablinks" onclick="openTab(event, 'Tab2')">الشروط و الاحكام</button>
   <button class="tablinks" onclick="openTab(event, 'Tab3')">اعدادات الالوان </button>
-  <button class="tablinks" onclick="openTab(event, 'Tab4')">البانر</button>
+  <button class="tablinks" onclick="openTab(event, 'Tab4')">الصيانة</button>
 </div>
 
 
@@ -223,7 +223,6 @@
   <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
     <div class="card shadow-none border-0">
         <div class="card-body text-center">
-
             <div>
                 <input id="showAlpha" type="text" class="form-control">
             </div>
@@ -251,8 +250,11 @@
 
 
 <div id="Tab4" class="tabcontent">
-  <h3>التبويب 4</h3>
-  <p>محتوى التبويب 4 يتم وضعه هنا.</p>
+  <div class="main-toggle-group-demo justify-content-center">
+    <div class="main-toggle">
+        <span></span>
+    </div>
+</div>
 </div>
 
 
