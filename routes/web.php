@@ -74,7 +74,7 @@ Route::get('/blogs/{id}', 'show')->name('showblog');
 
 Route::controller(SettingWebController::class)->group(function () {
     Route::get('/setting_web', 'index')->name('setting_web');
-        // Route::get('/setting_web', 'index')->name('setting_web');
+    Route::post('/settings/update', 'update')->name('settings.update');
 
 
 });

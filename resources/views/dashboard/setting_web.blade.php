@@ -10,38 +10,40 @@
     <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
     <!--- Internal Select2 css-->
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-<!--Internal  Quill css -->
-<link href="{{URL::asset('assets/plugins/quill/quill.snow.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/quill/quill.bubble.css')}}" rel="stylesheet">
-<!-- Internal Select2 css -->
-<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-<!--Internal  Datetimepicker-slider css -->
-<link href="{{URL::asset('assets/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css')}}" rel="stylesheet">
-<link href="{{URL::asset('assets/plugins/pickerjs/picker.min.css')}}" rel="stylesheet">
-<!-- Internal Spectrum-colorpicker css -->
-<link href="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+    <!--Internal  Quill css -->
+    {{-- <link href="{{ URL::asset('assets/plugins/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet"> --}}
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/amazeui-datetimepicker/css/amazeui.datetimepicker.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.css') }}"
+        rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/pickerjs/picker.min.css') }}" rel="stylesheet">
+
+    <link href="{{ URL::asset('assets/plugins/spectrum-colorpicker/spectrum.css') }}" rel="stylesheet">
 @section('title')
-    الدول
+    اعدادات الموقع و التطبيق
 @stop
-<style>.mg-r-10  {
-    margin-right: 10px;
-}
+<style>
+    .mg-r-10 {
+        margin-right: 10px;
+    }
+
     #quillEditor {
-  direction: rtl;
-  text-align: right;
-}
+        direction: rtl;
+        text-align: right;
+    }
+
     body {
         font-family: Arial;
     }
-    
+
     .tab {
         overflow: hidden;
         border-bottom: 1px solid #ccc;
         background-color: #fff;
     }
-    
+
     .tab button {
         background-color: inherit;
         float: right;
@@ -53,18 +55,18 @@
         font-size: 15px;
 
     }
-    
+
     .tab button:hover {
         background-color: #ddd;
         outline: navajowhite
     }
-    
+
     .tab button.active {
         background-color: #0428c4;
         color: #fff;
         outline: navajowhite
     }
-    
+
     .tabcontent {
         display: none;
         padding: 6px 12px;
@@ -75,44 +77,50 @@
         background-color: #fff;
         padding: 15px
     }
-    
+
     @keyframes fadeEffect {
-        from {opacity: 0;}
-        to {opacity: 1;}
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    </style>
-    <style>
-        .editor {
-            width: 400px;
-            margin: 0 auto;
-        }
-    
-        textarea {
-            width: 100%;
-            height: 200px;
-            font-size: 16px;
-            font-weight: normal;
-        }
-    
-        .controls {
-            margin-top: 10px;
-        }
-    
-        .font-size {
-            width: 100px;
-        }
-    
-        .font-weight {
-            width: 100px;
-        }
-    
-        .preview {
-            margin-top: 20px;
-        }
-    </style>
-    
-    
-    
+</style>
+<style>
+    .editor {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    textarea {
+        width: 100%;
+        height: 200px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .controls {
+        margin-top: 10px;
+    }
+
+    .font-size {
+        width: 100px;
+    }
+
+    .font-weight {
+        width: 100px;
+    }
+
+    .preview {
+        margin-top: 20px;
+    }
+</style>
+
+
+
+
 @endsection
 {{-- ection('page-header')
 				<!-- breadcrumb -->
@@ -169,10 +177,10 @@
 <h2 class="mt-3">ألسندات المتحركة</h2>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen"> معلومات عنا</button>
-  <button class="tablinks" onclick="openTab(event, 'Tab2')">الشروط و الاحكام</button>
-  <button class="tablinks" onclick="openTab(event, 'Tab3')">اعدادات الالوان </button>
-  <button class="tablinks" onclick="openTab(event, 'Tab4')">البانر</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen"> معلومات عنا</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab2')">الشروط و الاحكام</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab3')">اعدادات الالوان </button>
+    <button class="tablinks" onclick="openTab(event, 'Tab4')">البانر</button>
 </div>
 
 
@@ -180,30 +188,27 @@
 
 
 
+<form action="{{ route('settings.update') }}" method="POST">
+    @csrf
 
 
-
-
-<div id="Tab1" class="tabcontent">
-    {{-- <h3 class="mb-3">معلومات عنا</h3> --}}
-    <div class="ql-wrapper ql-wrapper-demo">
+    <div id="Tab1" class="tabcontent">
+        {{-- <textarea id="myTextarea"></textarea> --}}
+        <textarea id="textarea" name="about_page" rows="15">{{ $settings->about_page }}</textarea>
+        {{-- <div class="ql-wrapper ql-wrapper-demo">
         <div id="quillEditor">
             <p>معلومات عنا</p>
         </div>
         <button class="btn btn-primary w-100 mt-2">حفظ</button>
+    </div> --}}
     </div>
-</div>
 
 
-<div id="Tab2" class="tabcontent">
-    {{-- <h3 class="mb-3">الشروط والأحكام</h3> --}}
-    <div class="ql-wrapper ql-wrapper-demo">
-        <div id="quillEditor2">
-            <p>الشروط والأحكام</p>
-        </div>
-        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+
+
+    <div id="Tab2" class="tabcontent">
+        <textarea id="textarea2" name="privacy" rows="15">{{ $settings->privacy }}</textarea>
     </div>
-</div>
 
 
 
@@ -215,33 +220,36 @@
 
 
 
-<div id="Tab3" class="tabcontent">
+
+
+    <div id="Tab3" class="tabcontent">
 
 
 
-  <h3 class="text-center">تغيير الوان الموقع</h3>
-  <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
-    <div class="card shadow-none border-0">
-        <div class="card-body text-center">
+        <h3 class="text-center">تغيير الوان الموقع</h3>
+        <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
+            <div class="card shadow-none border-0">
+                <div class="card-body text-center">
 
-            <div>
-                <input id="showAlpha" type="text" class="form-control">
+                    <div>
+                        <input id="showAlpha" value="{{ $settings->color_primery }}" type="text"
+                            class="form-control" name="color_primery">
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
+
+
+
     </div>
-</div>
 
 
+    <button class="btn btn-primary w-100 mt-2">حفظ</button>
 
-
-
-
-</div>
-
-
-
-
-
+</form>
 
 
 
@@ -251,8 +259,8 @@
 
 
 <div id="Tab4" class="tabcontent">
-  <h3>التبويب 4</h3>
-  <p>محتوى التبويب 4 يتم وضعه هنا.</p>
+    <h3>التبويب 4</h3>
+    <p>محتوى التبويب 4 يتم وضعه هنا.</p>
 </div>
 
 
@@ -269,34 +277,41 @@
 
 @section('js')
 
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace('textarea');
+</script>
 
 
-
-
-
-
+<script>
+    CKEDITOR.replace('textarea2');
+</script>
 
 
 
 
 <script>
     function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
     }
-    
+
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
-    </script>
+</script>
 <script>
     $(document).ready(function() {
         // Initialize the select2 plugin on the country select box
@@ -411,25 +426,28 @@
     });
 </script>
 <!--Internal  Datepicker js -->
-<script src="{{URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
 <!--Internal  jquery.maskedinput js -->
-<script src="{{URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js') }}"></script>
 <!--Internal  spectrum-colorpicker js -->
-<script src="{{URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js') }}"></script>
 <!-- Internal Select2.min js -->
-<script src="{{URL::asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js') }}"></script>
 <!--Internal Ion.rangeSlider.min js -->
-<script src="{{URL::asset('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js') }}"></script>
 <!--Internal  jquery-simple-datetimepicker js -->
-<script src="{{URL::asset('assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js') }}"></script>
 <!-- Ionicons js -->
-<script src="{{URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/jquery-simple-datetimepicker/jquery.simple-dtpicker.js') }}"></script>
 <!--Internal  pickerjs js -->
-<script src="{{URL::asset('assets/plugins/pickerjs/picker.min.js')}}"></script>
+<script src="{{ URL::asset('assets/plugins/pickerjs/picker.min.js') }}"></script>
 <!--Internal quill js -->
-<script src="{{URL::asset('assets/plugins/quill/quill.min.js')}}"></script>
+{{-- <script src="{{ URL::asset('assets/plugins/quill/quill.min.js') }}"></script> --}}
 <!-- Internal form-elements js -->
-<script src="{{URL::asset('assets/js/form-elements.js')}}"></script>
+<script src="{{ URL::asset('assets/js/form-elements.js') }}"></script>
 <!-- Internal Form-editor js -->
-<script src="{{URL::asset('assets/js/form-editor.js')}}"></script>
+<script src="{{ URL::asset('assets/js/form-editor.js') }}"></script>
+<script>
+    var defaultColor = '{{ $settings->color_primery }}';
+</script>
 @endsection

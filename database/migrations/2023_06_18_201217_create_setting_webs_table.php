@@ -17,18 +17,10 @@ return new class extends Migration
             $table->id();
             $table->text('about_page')->nullable();
             $table->text('terms')->nullable();
-            $table->string('color_h1')->nullable();
-            $table->string('color_p')->nullable();
-            $table->string('color_h2')->nullable();
-            $table->string('color_h3')->nullable();
-            $table->string('color_h4')->nullable();
-            $table->string('color_h5')->nullable();
-            $table->string('color_h6')->nullable();
-            $table->string('color_background')->nullable();
+            $table->text('privacy')->nullable();
             $table->string('color_primery')->nullable();
             $table->string('color_second_primery')->nullable();
             $table->string('licance_web')->nullable();
-           
             $table->string('banner')->nullable();
             $table->timestamps();
         });

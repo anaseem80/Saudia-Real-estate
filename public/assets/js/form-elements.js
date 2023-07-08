@@ -1,22 +1,28 @@
 // Additional code for adding placeholder in search box of select2
-(function($) {
+var defaultColor = '';
+
+(function ($)
+{
 	var Defaults = $.fn.select2.amd.require('select2/defaults');
 	$.extend(Defaults.defaults, {
 		searchInputPlaceholder: ''
 	});
 	var SearchDropdown = $.fn.select2.amd.require('select2/dropdown/search');
 	var _renderSearchDropdown = SearchDropdown.prototype.render;
-	SearchDropdown.prototype.render = function(decorated) {
+	SearchDropdown.prototype.render = function (decorated)
+	{
 		// invoke parent method
 		var $rendered = _renderSearchDropdown.apply(this, Array.prototype.slice.apply(arguments));
 		this.$search.attr('placeholder', this.options.get('searchInputPlaceholder'));
 		return $rendered;
 	};
 })(window.jQuery);
-$(function() {
+$(function ()
+{
 	'use strict'
 	// Toggle Switches
-	$('.main-toggle').on('click', function() {
+	$('.main-toggle').on('click', function ()
+	{
 		$(this).toggleClass('on');
 	})
 	// Input Masks
@@ -29,7 +35,7 @@ $(function() {
 		color: '#17A2B8'
 	});
 	$('#showAlpha').spectrum({
-		color: 'rgba(23,162,184,0.5)',
+		color: defaultColor,
 		showAlpha: true
 	});
 	$('#showPaletteOnly').spectrum({
@@ -59,12 +65,14 @@ $(function() {
 	// jQuery Simple DateTimePicker
 	$('#datetimepicker2').appendDtpicker({
 		closeOnSelected: true,
-		onInit: function(handler) {
+		onInit: function (handler)
+		{
 			var picker = handler.getPicker();
 			$(picker).addClass('main-datetimepicker');
 		}
 	});
-	$(document).ready(function() {
+	$(document).ready(function ()
+	{
 		$('.select2').select2({
 			placeholder: 'Choose one',
 			searchInputPlaceholder: 'Search'
