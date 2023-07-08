@@ -180,7 +180,8 @@
     <button class="tablinks" onclick="openTab(event, 'Tab1')" id="defaultOpen"> معلومات عنا</button>
     <button class="tablinks" onclick="openTab(event, 'Tab2')">الشروط و الاحكام</button>
     <button class="tablinks" onclick="openTab(event, 'Tab3')">اعدادات الالوان </button>
-    <button class="tablinks" onclick="openTab(event, 'Tab4')">البانر</button>
+    {{-- <button class="tablinks" onclick="openTab(event, 'Tab4')">البانر</button> --}}
+    <button class="tablinks" onclick="openTab(event, 'Tab4')">الصيانة</button>
 </div>
 
 
@@ -226,25 +227,70 @@
 
 
 
+
+
+
         <h3 class="text-center">تغيير الوان الموقع</h3>
         <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
             <div class="card shadow-none border-0">
                 <div class="card-body text-center">
-
                     <div>
                         <input id="showAlpha" value="{{ $settings->color_primery }}" type="text"
                             class="form-control" name="color_primery">
                     </div>
                 </div>
+
+
+
+
+
+
             </div>
+        </div>
+    </div>
+
+
+    <div id="Tab4" class="tabcontent">
+        <h3>وضع الصيانه</h3>
+        <div class="main-toggle-group-demo" style="text-align: right;" important!>
+            <div style="float: right; margin-right: 10px; margin-left: 10px;" important!>
+                تغيير وضع الصيانه
+            </div>
+
+            <div class="main-toggle">
+                <span></span>
+            </div>
+        </div>
+
+        <br>
+        <textarea id="textarea3" name="" rows="15"></textarea>
+
+
+
+        @php
+            $bg_color = 1 ? '#2ecc71' : '#e74c3c';
+        @endphp
+
+        <div style="background-color: {{ $bg_color }}; opacity: 0.8; text-align: center; padding: 20px;">
+            <span style="color: white; font-size: 24px;">
+                @if (1)
+                    الصيانة يعمل
+                    <div
+                        style="background-color: #0F52BA; opacity: 0.8; padding: 5px; border-radius: 5px; display: inline-block; margin-left: 10px;">
+                        تم التحديث</div>
+                @else
+                    الصيانة لا تعمل
+                    <div
+                        style="background-color: #e67e22; opacity: 0.8; padding: 5px; border-radius: 5px; display: inline-block; margin-left: 10px;">
+                        جاري التحديث</div>
+                @endif
+            </span>
         </div>
 
 
 
-
-
-
     </div>
+
 
 
     <button class="btn btn-primary w-100 mt-2">حفظ</button>
@@ -255,13 +301,6 @@
 
 
 
-
-
-
-<div id="Tab4" class="tabcontent">
-    <h3>التبويب 4</h3>
-    <p>محتوى التبويب 4 يتم وضعه هنا.</p>
-</div>
 
 
 
@@ -291,6 +330,9 @@
     CKEDITOR.replace('textarea2');
 </script>
 
+<script>
+    CKEDITOR.replace('textarea3');
+</script>
 
 
 

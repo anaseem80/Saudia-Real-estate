@@ -150,7 +150,7 @@
 
                                     <option value="">اختار الدوله</option>
                                     @foreach ($countrys as $country)
-                                        <option value="{{ $country->name }}">{{ $country->name }}</option>
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -432,11 +432,13 @@
     <script>
         $(document).ready(function() {
             $('#country').change(function() {
+                // console.log(window.location)
                 var countryId = $(this).val();
+                console.log(countryId)
+
                 if (countryId) {
                     $.ajax({
-                        url: '/Saudia-Real-estate/public/get-cities/' +
-                            countryId, // Replace with your route URL
+                        url: "http://127.0.0.1:8000/get-cities/" + countryId,
                         type: 'GET',
                         success: function(response) {
 
