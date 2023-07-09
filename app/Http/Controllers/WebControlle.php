@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Catogery;
 use App\Models\Comment;
 use App\Models\Enquiry;
+use App\Models\Maintenance;
 use App\Models\Property;
 use App\Models\Report;
 use App\Models\Setting;
@@ -13,6 +14,7 @@ use App\Models\SettingWeb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class WebControlle extends Controller
 {
@@ -21,16 +23,11 @@ class WebControlle extends Controller
         // Query to retrieve the most countries where properties are established
 
         $propertiesviews = Property::orderBy('views', 'desc')->get();
-
-        $blogs = Blog::limit(2)->get();
-        $catogerys = Catogery::all();
+        $blogs = Blog::limit(3)->get();
         return view(
             'front_end.home',
             [
-
                 'propertiesviews' => $propertiesviews,
-
-                'catogerys' => $catogerys,
                 'blogs' => $blogs
             ]
         );
@@ -64,6 +61,7 @@ class WebControlle extends Controller
             ]
         );
     }
+    
     public function detalisscreen($id)
     {
 
@@ -205,7 +203,8 @@ class WebControlle extends Controller
         return back();
     }
  public function addComment(Request $request)
-{
+    {
+      
     try {
         $validatedData = $request->validate([
             'property_id' => 'required|exists:properties,id',
@@ -234,4 +233,24 @@ class WebControlle extends Controller
         return back();
     }
 }
+
+
+
+    public function searchByName(Request $request)
+    {
+        $properties = Property::where('name', 'like', '%'.$request->input('name').'%')->get();
+         $blogs = Blog::limit(3)->get();
+        return view(
+            'front_end.home',
+            [
+                'propertiesviews' => $properties??[],
+                'blogs' => $blogs
+            ]
+        );
+    }
+
+
+
+
+
 }

@@ -68,14 +68,16 @@ Route::post('/blogs.store', 'store')->name('blogs.store');
 Route::get('/blogs/{id}/edit',  'edit')->name('blogs.edit');
 Route::post('/blogs.update', 'update')->name('blogs.update');
 Route::post('/blogs.destroy', 'destroy')->name('blogs.destroy');
-Route::get('/blogs/{id}', 'show')->name('showblog');
+Route::get('/showblog/{id}', 'show')->name('showblog');
 });
 
 
 
 Route::controller(SettingWebController::class)->group(function () {
-    Route::get('/setting_web', 'index')->name('setting_web');
-    Route::post('/settings/update', 'update')->name('settings.update');
+    Route::get('/setting_web', 'index')->name('setting_web'); 
+    Route::get('/colorweb', 'colorweb')->name('colorweb');
+    Route::post('/settings/update', 'update')->name('settings.update'); 
+    Route::post('updatewebsite'  , 'updatewebsite')->name('admin.updatewebsite');
 
 
 });
@@ -95,8 +97,9 @@ Route::get('/moreproperty/{country}', 'moreproperty')->name('moreproperty');
 Route::get('/aboutpage', 'aboutpage')->name('aboutpage');
 Route::get('/contactPage', 'contactPage')->name('contactPage');
 Route::get('/terms', 'privecyPage')->name('terms');
+       Route::get('/searchByName', 'searchByName')->name('searchByName');
 
-Route::get('/addComment', 'addComment')->name('addComment');
+Route::post('/addComment', 'addComment')->name('addComment');
 
 Route::get('/morepropertyCato/{catogery}', 'morepropertyCato')->name('morepropertyCato');
 Route::get('/filterweb',[PropertyController::class,'filterweb'] )->name('filterweb');

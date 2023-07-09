@@ -16,8 +16,8 @@ class BlogController extends Controller
      */
     public function index()
     {    $blogs = Blog::all();
-        $catogerys= Catogery::all();
-        return view('dashboard.blog',['blogs'=>$blogs, 'catogerys'=>  $catogerys,]);
+        // $catogerys= Catogery::all();
+        // return view('front_end.blog',['blogs'=>$blogs]);
     }
 
     /**
@@ -69,9 +69,9 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $blog = Blog::find($id);
-        $catogerys= Catogery::all();
-        return view('dashboard.singleblog', ['blogs'=>$blog, 'catogerys'=>  $catogerys]);
+        $blog = Blog::find($id);  
+         $catogeries = Catogery::all();
+        return view('front_end.blog-detalis', ['blog'=>$blog,'catogeries'=>$catogeries]);
     }
 
     /**
@@ -83,6 +83,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
+     
         return view('blogs.edit', compact('blog'));
     }
 

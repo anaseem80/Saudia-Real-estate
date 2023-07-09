@@ -266,33 +266,43 @@
                         <div class="title-box">
                             <h4>اترك تعليقا!</h4>
                         </div>
-                        {{-- <form action="" method="POST">
-                            <div class="form-group">
-                                <label for="message">الرسالة</label>
-                                <textarea name="message" id="message" class="border p-3"></textarea>
-                            </div>
-                            <button class="theme-btn btn-one w-100">إرسال</button>
-                        </form> --}}
+                        @auth
+                            <form action="{{ route('addComment') }}" method="POST">
+                                @csrf
+                                <input type="text" value="{{ $property->id }}" name="property_id" hidden>
+                                <div class="form-group">
+                                    <label for="message">الرسالة</label>
+                                    <textarea name="content" id="message" class="border p-3"></textarea>
+                                </div>
+                                <button class="theme-btn btn-one w-100">إرسال</button>
+                            </form>
+                        @endauth
+                        @guest
+                            <p class="text-center"><a href="#">الرجاء القيام بالتسجيل حتي تتمكن من التعليق!</a></p>
+                        @endguest
 
-                        {{-- If user not registered --}}
-                        <p class="text-center"><a href="#">الرجاء القيام بالتسجيل حتي تتمكن من التعليق!</a></p>
+
                     </div>
                     <div class="location-box content-widget">
                         <div class="title-box">
                             <h4>التعليقات</h4>
                         </div>
-                        <div class="comment-box row">
-                            <div class="col-lg-2">
-                                <div class="comment-picture">
-                                    <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="" class="rounded-circle">
+
+                        @foreach ($property->comments as $comment)
+                            <div class="comment-box row">
+                                <div class="col-lg-2">
+                                    <div class="comment-picture">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                            alt="" class="rounded-circle">
+                                    </div>
+                                </div>
+                                <div class="comment-details col-lg-10">
+                                    <div class="name text-dark">{{ $comment->user->name }}</div>
+                                    <span>{{ $comment->created_at->locale('ar')->diffForHumans() }}</span>
+                                    <div class="message my-3">{{ $comment->content }}</div>
                                 </div>
                             </div>
-                            <div class="comment-details col-lg-10">
-                                <div class="name text-dark">احمد نسيم</div>
-                                <span>ابريل 10, 2020</span>
-                                <div class="message my-3">هذا العقار ممتاز جدا جدا هذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جدا هذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جداهذا العقار ممتاز جدا جدا</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     {{-- <div class="nearby-box content-widget">
                                 <div class="title-box">

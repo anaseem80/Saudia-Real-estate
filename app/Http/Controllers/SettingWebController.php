@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Maintenance;
 use App\Models\SettingWeb;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class SettingWebController extends Controller
     public function index()
     {
         $settings = SettingWeb::first();
-        return view('dashboard.setting_web',compact('settings'));
+         $maintenance = Maintenance::first();
+        return view('dashboard.setting_web',compact('settings','maintenance'));
     }
 
     /**
@@ -56,9 +58,10 @@ class SettingWebController extends Controller
      * @param  \App\Models\SettingWeb  $settingWeb
      * @return \Illuminate\Http\Response
      */
-    public function edit(SettingWeb $settingWeb)
+    public function colorweb()
     {
-        //
+        $color = SettingWeb::select('color_primery')->first();
+        return response()->json(['color'=>$color], 200);
     }
 
   
@@ -98,4 +101,23 @@ class SettingWebController extends Controller
     {
         //
     }
+
+    public function updatewebsite(Request $request)
+{
+    $website = Maintenance::firstOrCreate([
+        'ismaintenanc'=>true,
+        'content'=>'dfgdfgdfgdfg',
+    ]);
+    
+    if ($request->maintenance_mode == "true") {
+        $website->ismaintenanc = 1;
+    } else {
+        $website->ismaintenanc = 0;
+    }
+  
+    $website->content = $request->content ?? "";
+    $website->save();
+    return back();
+}
+
 }

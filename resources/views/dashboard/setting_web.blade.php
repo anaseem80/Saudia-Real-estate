@@ -136,7 +136,7 @@
 @endsection --}}
 @section('content')
 
-
+<br>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -189,11 +189,12 @@
 
 
 
-<form action="{{ route('settings.update') }}" method="POST">
-    @csrf
 
 
-    <div id="Tab1" class="tabcontent">
+
+<div id="Tab1" class="tabcontent">
+    <form action="{{ route('settings.update') }}" method="POST">
+        @csrf
         {{-- <textarea id="myTextarea"></textarea> --}}
         <textarea id="textarea" name="about_page" rows="15">{{ $settings->about_page }}</textarea>
         {{-- <div class="ql-wrapper ql-wrapper-demo">
@@ -202,14 +203,23 @@
         </div>
         <button class="btn btn-primary w-100 mt-2">حفظ</button>
     </div> --}}
-    </div>
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+
+    </form>
+</div>
 
 
 
 
-    <div id="Tab2" class="tabcontent">
+<div id="Tab2" class="tabcontent">
+    <form action="{{ route('settings.update') }}" method="POST">
+        @csrf
         <textarea id="textarea2" name="privacy" rows="15">{{ $settings->privacy }}</textarea>
-    </div>
+
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+
+    </form>
+</div>
 
 
 
@@ -223,13 +233,14 @@
 
 
 
-    <div id="Tab3" class="tabcontent">
+<div id="Tab3" class="tabcontent">
 
 
 
 
 
-
+    <form action="{{ route('settings.update') }}" method="POST">
+        @csrf
         <h3 class="text-center">تغيير الوان الموقع</h3>
         <div class="col-md-12 col-xl-12 col-xs-12 col-sm-12">
             <div class="card shadow-none border-0">
@@ -247,33 +258,41 @@
 
             </div>
         </div>
-    </div>
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
+
+    </form>
+
+</div>
 
 
-    <div id="Tab4" class="tabcontent">
+<div id="Tab4" class="tabcontent">
+    <form method="POST" action="{{ route('admin.updatewebsite') }}">
+        @csrf
         <h3>وضع الصيانه</h3>
-        <div class="main-toggle-group-demo" style="text-align: right;" important!>
-            <div style="float: right; margin-right: 10px; margin-left: 10px;" important!>
+        <div class="main-toggle-group-demo" style="text-align: right;">
+            <div style="float: right; margin-right: 10px; margin-left: 10px;">
                 تغيير وضع الصيانه
             </div>
-
+            <input type="text" value="true" name="maintenance_mode" hidden>
+            {{-- $maintenance->ismaintenanc --}}
             <div class="main-toggle">
                 <span></span>
             </div>
+
         </div>
 
         <br>
-        <textarea id="textarea3" name="" rows="15"></textarea>
+        <textarea id="textarea3" name="content" rows="15">{{ $maintenance->content }}</textarea>
 
 
 
         @php
-            $bg_color = 1 ? '#2ecc71' : '#e74c3c';
+            $bg_color = $maintenance->ismaintenanc ? '#2ecc71' : '#e74c3c';
         @endphp
 
         <div style="background-color: {{ $bg_color }}; opacity: 0.8; text-align: center; padding: 20px;">
             <span style="color: white; font-size: 24px;">
-                @if (1)
+                @if ($maintenance->ismaintenanc)
                     الصيانة يعمل
                     <div
                         style="background-color: #0F52BA; opacity: 0.8; padding: 5px; border-radius: 5px; display: inline-block; margin-left: 10px;">
@@ -282,20 +301,22 @@
                     الصيانة لا تعمل
                     <div
                         style="background-color: #e67e22; opacity: 0.8; padding: 5px; border-radius: 5px; display: inline-block; margin-left: 10px;">
-                        جاري التحديث</div>
+                        جاري التحديث
+                    </div>
                 @endif
             </span>
         </div>
 
 
+        <button class="btn btn-primary w-100 mt-2">حفظ</button>
 
-    </div>
+    </form>
 
 
 
-    <button class="btn btn-primary w-100 mt-2">حفظ</button>
+</div>
 
-</form>
+
 
 
 
@@ -354,7 +375,7 @@
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 </script>
-<script>
+{{-- <script>
     $(document).ready(function() {
         // Initialize the select2 plugin on the country select box
         $('#country').select2();
@@ -378,7 +399,7 @@
             }
         });
     });
-</script>
+</script> --}}
 <!-- Internal Data tables -->
 <script src="{{ URL::asset('assets/js/modal.js') }}"></script>
 <script src="{{ URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
@@ -399,7 +420,7 @@
 <script src="{{ URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js') }}"></script>
 <!--Internal  Datatable js -->
 <script src="{{ URL::asset('assets/js/table-data.js') }}"></script>
-<script>
+{{-- <script>
     document.querySelector("#image").addEventListener("change", function() {
         var reader = new FileReader();
         reader.onload = function(e) {
@@ -408,7 +429,7 @@
         };
         reader.readAsDataURL(this.files[0]);
     });
-</script>
+</script> --}}
 {{-- <script>
     $('#exampleModal2').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
