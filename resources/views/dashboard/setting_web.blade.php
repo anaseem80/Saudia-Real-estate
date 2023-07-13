@@ -354,7 +354,9 @@
 <script>
     CKEDITOR.replace('textarea3');
 </script>
-
+<script>
+    CKEDITOR.replace('textarea4');
+</script>
 
 
 <script>
